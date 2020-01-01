@@ -12,6 +12,9 @@
 		EBFF6DEC23BCBF8B00528352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */; };
 		EBFF6DEF23BCBF8B00528352 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DED23BCBF8B00528352 /* LaunchScreen.storyboard */; };
 		EBFF6DFA23BCBF8C00528352 /* weatherforecastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6DF923BCBF8C00528352 /* weatherforecastTests.swift */; };
+		EBFF6E0723BCC67C00528352 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6E0623BCC67C00528352 /* HTTPClient.swift */; };
+		EBFF6E0A23BCCBD600528352 /* HTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6E0923BCCBD600528352 /* HTTPClientTests.swift */; };
+		EBFF6E1023BCCC4000528352 /* URLSessionProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6E0F23BCCC4000528352 /* URLSessionProtocolMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 		EBFF6DF523BCBF8C00528352 /* weatherforecastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherforecastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFF6DF923BCBF8C00528352 /* weatherforecastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherforecastTests.swift; sourceTree = "<group>"; };
 		EBFF6DFB23BCBF8C00528352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBFF6E0623BCC67C00528352 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		EBFF6E0923BCCBD600528352 /* HTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientTests.swift; sourceTree = "<group>"; };
+		EBFF6E0F23BCCC4000528352 /* URLSessionProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocolMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 		EBFF6DE123BCBF8A00528352 /* weatherforecast */ = {
 			isa = PBXGroup;
 			children = (
+				EBFF6E0523BCC36100528352 /* Network */,
 				EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */,
 				EBFF6DE623BCBF8A00528352 /* ViewController.swift */,
 				EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */,
@@ -87,10 +94,36 @@
 		EBFF6DF823BCBF8C00528352 /* weatherforecastTests */ = {
 			isa = PBXGroup;
 			children = (
+				EBFF6E0E23BCCC3400528352 /* Mock */,
+				EBFF6E0823BCCBBD00528352 /* Network */,
 				EBFF6DF923BCBF8C00528352 /* weatherforecastTests.swift */,
 				EBFF6DFB23BCBF8C00528352 /* Info.plist */,
 			);
 			path = weatherforecastTests;
+			sourceTree = "<group>";
+		};
+		EBFF6E0523BCC36100528352 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EBFF6E0623BCC67C00528352 /* HTTPClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EBFF6E0823BCCBBD00528352 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EBFF6E0923BCCBD600528352 /* HTTPClientTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EBFF6E0E23BCCC3400528352 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				EBFF6E0F23BCCC4000528352 /* URLSessionProtocolMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +228,7 @@
 			files = (
 				EBFF6DE723BCBF8A00528352 /* ViewController.swift in Sources */,
 				EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */,
+				EBFF6E0723BCC67C00528352 /* HTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +236,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBFF6E1023BCCC4000528352 /* URLSessionProtocolMock.swift in Sources */,
+				EBFF6E0A23BCCBD600528352 /* HTTPClientTests.swift in Sources */,
 				EBFF6DFA23BCBF8C00528352 /* weatherforecastTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
