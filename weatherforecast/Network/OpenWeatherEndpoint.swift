@@ -15,7 +15,7 @@ enum OpenWeatherEndpoint {
 		switch self {
 		case .weatherForecastByGeographicCoordinate(let latitude, let longitude):
 			let urlAsString = #"\#(OpenWeatherUrlConfiguration.apiUrl)/weather"# +
-							  #"?lat=\#(latitude)&lon=\#(longitude)&appid=\#(OpenWeatherCredential.appKey)"#
+							  #"?lat=\#(latitude)&lon=\#(longitude)&appid=\#(OpenWeatherCredential.appKey)&units=metric"#
 			guard let url = URL(string: urlAsString) else {
 				fatalError("Could not form url for .weatherForecastByGeographicCoordinate")
 			}

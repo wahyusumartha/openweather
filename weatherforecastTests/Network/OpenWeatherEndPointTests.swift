@@ -14,7 +14,7 @@ final class OpenWeatherEndPointTests: XCTestCase {
 		let latitude: Double = 53.551086
 		let longitude: Double = 9.993682
 		let appId = OpenWeatherCredential.appKey
-		let urlAsString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(appId)"
+		let urlAsString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(appId)&units=metric"
 		let expectedUrl = URL(string: urlAsString)!
 		let endpoint = OpenWeatherEndpoint.weatherForecastByGeographicCoordinate(latitude: latitude,
 																				 longitude: longitude)
