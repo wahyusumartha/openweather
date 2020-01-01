@@ -11,10 +11,20 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+	// MARK: - Public Properties
+	var window: UIWindow?
+
+	// MARK: - Lifecycles
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		setupInitialUserInterface()
 		return true
 	}
 
+	// MARK: - Private Methods
+	private func setupInitialUserInterface() {
+		window = UIWindow(frame: UIScreen.main.bounds)
+		window?.rootViewController = ViewController()
+		window?.makeKeyAndVisible()
+	}
 }
 
