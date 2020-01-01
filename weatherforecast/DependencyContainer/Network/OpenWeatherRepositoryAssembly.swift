@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import Swinject
+
+final class OpenWeatherRepositoryAssembly: Assembly {
+	
+	// MARK: - Public Methods
+	func assemble(container: Container) {
+		container.register(WeatherRepository.self) { resolver in
+			return OpenWeatherRepository(httpClient: resolver.resolve(HTTPClientProtocol.self)!)
+		}
+	}
+}

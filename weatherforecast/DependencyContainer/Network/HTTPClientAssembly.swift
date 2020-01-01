@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import Swinject
+
+final class HTTPClientAssembly: Assembly {
+		
+	// MARK: - Public Methods
+	func assemble(container: Container) {
+		container.register(HTTPClientProtocol.self) { _ in
+			return HTTPClient()
+		}
+	}
+}

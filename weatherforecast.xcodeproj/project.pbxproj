@@ -35,6 +35,8 @@
 		EBFF6E3A23BD3EA200528352 /* HTTPClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6E3923BD3EA200528352 /* HTTPClientMock.swift */; };
 		EBFF6E3C23BD3F2700528352 /* OpenWeatherRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6E3B23BD3F2700528352 /* OpenWeatherRepositoryTests.swift */; };
 		EBFF6E3F23BD441300528352 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = EBFF6E3E23BD441300528352 /* Swinject */; };
+		EBFF6E4323BD454B00528352 /* OpenWeatherRepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6E4223BD454B00528352 /* OpenWeatherRepositoryAssembly.swift */; };
+		EBFF6E4523BD45CC00528352 /* HTTPClientAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6E4423BD45CC00528352 /* HTTPClientAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		EBFF6E3723BD3D4200528352 /* OpenWeatherEndPointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherEndPointTests.swift; sourceTree = "<group>"; };
 		EBFF6E3923BD3EA200528352 /* HTTPClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientMock.swift; sourceTree = "<group>"; };
 		EBFF6E3B23BD3F2700528352 /* OpenWeatherRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherRepositoryTests.swift; sourceTree = "<group>"; };
+		EBFF6E4223BD454B00528352 /* OpenWeatherRepositoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherRepositoryAssembly.swift; sourceTree = "<group>"; };
+		EBFF6E4423BD45CC00528352 /* HTTPClientAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 		EBFF6DE123BCBF8A00528352 /* weatherforecast */ = {
 			isa = PBXGroup;
 			children = (
+				EBFF6E4023BD450200528352 /* DependencyContainer */,
 				EBFF6E1123BCE3A700528352 /* Model */,
 				EBFF6E0523BCC36100528352 /* Network */,
 				EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */,
@@ -199,6 +204,23 @@
 				EBFF6E2723BD1BDB00528352 /* AggregatedWeatherInfoTests.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EBFF6E4023BD450200528352 /* DependencyContainer */ = {
+			isa = PBXGroup;
+			children = (
+				EBFF6E4123BD452500528352 /* Network */,
+			);
+			path = DependencyContainer;
+			sourceTree = "<group>";
+		};
+		EBFF6E4123BD452500528352 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EBFF6E4223BD454B00528352 /* OpenWeatherRepositoryAssembly.swift */,
+				EBFF6E4423BD45CC00528352 /* HTTPClientAssembly.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,7 +335,9 @@
 				EBFF6E2C23BD32DF00528352 /* OpenWeatherRepository.swift in Sources */,
 				EBFF6E1723BD0C9800528352 /* Cloud.swift in Sources */,
 				EBFF6E1B23BD0E8500528352 /* MainInfo.swift in Sources */,
+				EBFF6E4323BD454B00528352 /* OpenWeatherRepositoryAssembly.swift in Sources */,
 				EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */,
+				EBFF6E4523BD45CC00528352 /* HTTPClientAssembly.swift in Sources */,
 				EBFF6E3223BD374000528352 /* OpenWeatherEndpoint.swift in Sources */,
 				EBFF6E0723BCC67C00528352 /* HTTPClient.swift in Sources */,
 				EBFF6E3423BD396700528352 /* OpenWeatherCredential.swift in Sources */,
