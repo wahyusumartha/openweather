@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		EB1E9D1D23BD5FE80032A8E2 /* UIColor+Pallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1E9D1C23BD5FE80032A8E2 /* UIColor+Pallete.swift */; };
 		EB1E9D1F23BD60370032A8E2 /* BookmarkLocationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1E9D1E23BD60370032A8E2 /* BookmarkLocationCardView.swift */; };
+		EB5F7B9023BDF4A7004199A4 /* DeviceLocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7B8F23BDF4A7004199A4 /* DeviceLocationHandler.swift */; };
+		EB5F7B9223BE017A004199A4 /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7B9123BE017A004199A4 /* AddLocationViewModel.swift */; };
+		EB5F7B9523BE01B7004199A4 /* Observable in Frameworks */ = {isa = PBXBuildFile; productRef = EB5F7B9423BE01B7004199A4 /* Observable */; };
+		EB5F7B9723BE02BB004199A4 /* AddLocationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7B9623BE02BB004199A4 /* AddLocationFactory.swift */; };
+		EB5F7B9E23BE4830004199A4 /* PlaceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7B9D23BE4830004199A4 /* PlaceInfo.swift */; };
+		EB5F7BA023BE4CCA004199A4 /* PlaceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7B9F23BE4CCA004199A4 /* PlaceInfoTests.swift */; };
+		EB61609423BD6EA10029BAC3 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */; };
 		EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */; };
 		EBFF6DEC23BCBF8B00528352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */; };
 		EBFF6DEF23BCBF8B00528352 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DED23BCBF8B00528352 /* LaunchScreen.storyboard */; };
@@ -55,6 +62,8 @@
 /* Begin PBXFileReference section */
 		EB1E9D1C23BD5FE80032A8E2 /* UIColor+Pallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Pallete.swift"; sourceTree = "<group>"; };
 		EB1E9D1E23BD60370032A8E2 /* BookmarkLocationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkLocationCardView.swift; sourceTree = "<group>"; };
+		EB5F7B9D23BE4830004199A4 /* PlaceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfo.swift; sourceTree = "<group>"; };
+		EB5F7B9F23BE4CCA004199A4 /* PlaceInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfoTests.swift; sourceTree = "<group>"; };
 		EBFF6DDF23BCBF8A00528352 /* weatherforecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherforecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -205,6 +214,7 @@
 				EBFF6E1623BD0C9800528352 /* Cloud.swift */,
 				EBFF6E1A23BD0E8500528352 /* MainInfo.swift */,
 				EBFF6E1C23BD0EEC00528352 /* AggregatedWeatherInfo.swift */,
+				EB5F7B9D23BE4830004199A4 /* PlaceInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +227,7 @@
 				EBFF6E2323BD124200528352 /* WeatherTests.swift */,
 				EBFF6E2523BD137300528352 /* MainInfoTests.swift */,
 				EBFF6E2723BD1BDB00528352 /* AggregatedWeatherInfoTests.swift */,
+				EB5F7B9F23BE4CCA004199A4 /* PlaceInfoTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -367,6 +378,7 @@
 				EBFF6E2A23BD30D700528352 /* WeatherRepository.swift in Sources */,
 				EBFF6E2C23BD32DF00528352 /* OpenWeatherRepository.swift in Sources */,
 				EBFF6E1723BD0C9800528352 /* Cloud.swift in Sources */,
+				EB5F7B9E23BE4830004199A4 /* PlaceInfo.swift in Sources */,
 				EBFF6E1B23BD0E8500528352 /* MainInfo.swift in Sources */,
 				EBFF6E4323BD454B00528352 /* OpenWeatherRepositoryAssembly.swift in Sources */,
 				EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */,
@@ -389,6 +401,7 @@
 			files = (
 				EBFF6E1023BCCC4000528352 /* URLSessionProtocolMock.swift in Sources */,
 				EBFF6E2023BD0F9000528352 /* CloudTests.swift in Sources */,
+				EB5F7BA023BE4CCA004199A4 /* PlaceInfoTests.swift in Sources */,
 				EBFF6E2823BD1BDB00528352 /* AggregatedWeatherInfoTests.swift in Sources */,
 				EBFF6E2423BD124200528352 /* WeatherTests.swift in Sources */,
 				EBFF6E3A23BD3EA200528352 /* HTTPClientMock.swift in Sources */,
