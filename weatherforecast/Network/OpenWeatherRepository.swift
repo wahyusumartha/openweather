@@ -41,4 +41,28 @@ struct OpenWeatherRepository: WeatherRepository {
 			}
 		}
 	}
+
+	func retrievePlaceInformation(latitude: Double,
+								  longitude: Double,
+								  completionHandler: @escaping (Result<PlaceInfo, WeatherRepositoryError>) -> Void) {
+		let endPoint = OpenWeatherEndpoint.placeInfo(latitude: latitude,
+													 longitude: longitude)
+		
+		httpClient.get(url: endPoint.url) { (result) in
+			switch result {
+			case .success(let data):
+				guard let placeInfo = try? JSONDecoder().decode(PlaceInfo.self, from: data)
+				else {
+					let error = WeatherRepositoryError.invalidJSONData
+					completionHandler(.failure(error))
+					return
+				}
+				
+				completionHandler(.success(placeInfo))
+			case .failure(let responseError):
+				let error = WeatherRepositoryError.unknownError(message: responseError.localizedDescription)
+				completionHandler(.failure(error))
+			}
+		}
+	}
 }

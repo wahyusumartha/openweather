@@ -17,4 +17,7 @@ protocol WeatherRepository {
 	func weatherForecastByGeographicCoordinates(latitude: Double,
 												longitude: Double,
 												completionHandler: @escaping (Result<AggregatedWeatherInfo, WeatherRepositoryError>) -> Void)
+	func retrievePlaceInformation(latitude: Double,
+								  longitude: Double,
+								  completionHandler: @escaping (Result<PlaceInfo, WeatherRepositoryError>) -> Void)
 }
