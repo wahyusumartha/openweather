@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Observable",
+        "repositoryURL": "git@github.com:roberthein/Observable.git",
+        "state": {
+          "branch": null,
+          "revision": "b8e87082d65f3f322f35973384e23590031f078c",
+          "version": "1.6.2"
+        }
+      },
+      {
         "package": "Swinject",
         "repositoryURL": "git@github.com:Swinject/Swinject.git",
         "state": {

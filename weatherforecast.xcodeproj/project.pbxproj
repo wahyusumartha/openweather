@@ -106,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBFF6E3F23BD441300528352 /* Swinject in Frameworks */,
+				EB5F7B9523BE01B7004199A4 /* Observable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +286,7 @@
 			name = weatherforecast;
 			packageProductDependencies = (
 				EBFF6E3E23BD441300528352 /* Swinject */,
+				EB5F7B9423BE01B7004199A4 /* Observable */,
 			);
 			productName = weatherforecast;
 			productReference = EBFF6DDF23BCBF8A00528352 /* weatherforecast.app */;
@@ -338,6 +340,7 @@
 			mainGroup = EBFF6DD623BCBF8A00528352;
 			packageReferences = (
 				EBFF6E3D23BD441300528352 /* XCRemoteSwiftPackageReference "Swinject" */,
+				EB5F7B9323BE01B7004199A4 /* XCRemoteSwiftPackageReference "Observable" */,
 			);
 			productRefGroup = EBFF6DE023BCBF8A00528352 /* Products */;
 			projectDirPath = "";
@@ -660,6 +663,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EB5F7B9323BE01B7004199A4 /* XCRemoteSwiftPackageReference "Observable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:roberthein/Observable.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.2;
+			};
+		};
 		EBFF6E3D23BD441300528352 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:Swinject/Swinject.git";
@@ -671,6 +682,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EB5F7B9423BE01B7004199A4 /* Observable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB5F7B9323BE01B7004199A4 /* XCRemoteSwiftPackageReference "Observable" */;
+			productName = Observable;
+		};
 		EBFF6E3E23BD441300528352 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBFF6E3D23BD441300528352 /* XCRemoteSwiftPackageReference "Swinject" */;
