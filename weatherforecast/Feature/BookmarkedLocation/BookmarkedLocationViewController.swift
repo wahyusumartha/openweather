@@ -25,6 +25,7 @@ final class BookmarkedLocationViewController: UIViewController {
 		
 		setupSubviews()
 		setupConstraints()
+		setupRightNavigationBarButtonItem()
 	}
    
 	private func setupSubviews() {
@@ -43,6 +44,17 @@ final class BookmarkedLocationViewController: UIViewController {
 		
 		NSLayoutConstraint.activate(tableViewConstraints)
 	}
+	
+	private func setupRightNavigationBarButtonItem() {
+		let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddLocation))
+		rightBarButtonItem.tintColor = .authenticBlue900
+		navigationItem.rightBarButtonItem = rightBarButtonItem
+	}
+	
+	@objc private func showAddLocation() {
+		let viewController = AddLocationFactory().makeAddLocationViewController()
+		navigationController?.pushViewController(viewController, animated: true)
+	}
 }
 
 extension BookmarkedLocationViewController: UITableViewDataSource {
@@ -58,13 +70,10 @@ extension BookmarkedLocationViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 10
 	}
-	
-	
 }
 
 extension BookmarkedLocationViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 100
 	}
-	
 }
