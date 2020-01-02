@@ -15,6 +15,12 @@
 		EB5F7B9723BE02BB004199A4 /* AddLocationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7B9623BE02BB004199A4 /* AddLocationFactory.swift */; };
 		EB5F7B9E23BE4830004199A4 /* PlaceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7B9D23BE4830004199A4 /* PlaceInfo.swift */; };
 		EB5F7BA023BE4CCA004199A4 /* PlaceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7B9F23BE4CCA004199A4 /* PlaceInfoTests.swift */; };
+		EB5F7BA423BE5052004199A4 /* BookmarkLocation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BA223BE5052004199A4 /* BookmarkLocation.xcdatamodeld */; };
+		EB5F7BD723BE7B06004199A4 /* BookmarkLocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BD623BE7B06004199A4 /* BookmarkLocationRepository.swift */; };
+		EB5F7BD923BE7B90004199A4 /* LocalBookmarkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BD823BE7B90004199A4 /* LocalBookmarkRepository.swift */; };
+		EB5F7BDB23BE7C20004199A4 /* CoreDataPersistentContainerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BDA23BE7C20004199A4 /* CoreDataPersistentContainerHandler.swift */; };
+		EB5F7BDE23BE7D05004199A4 /* CoreDataPersistentContainerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BDD23BE7D05004199A4 /* CoreDataPersistentContainerAssembly.swift */; };
+		EB5F7BE023BE7F9B004199A4 /* LocalBookmarkRepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BDF23BE7F9B004199A4 /* LocalBookmarkRepositoryAssembly.swift */; };
 		EB61609423BD6EA10029BAC3 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */; };
 		EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */; };
 		EBFF6DEC23BCBF8B00528352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */; };
@@ -65,6 +71,12 @@
 		EB5F7B8F23BDF4A7004199A4 /* DeviceLocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationHandler.swift; sourceTree = "<group>"; };
 		EB5F7B9D23BE4830004199A4 /* PlaceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfo.swift; sourceTree = "<group>"; };
 		EB5F7B9F23BE4CCA004199A4 /* PlaceInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfoTests.swift; sourceTree = "<group>"; };
+		EB5F7BA323BE5052004199A4 /* BookmarkLocation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookmarkLocation.xcdatamodel; sourceTree = "<group>"; };
+		EB5F7BD623BE7B06004199A4 /* BookmarkLocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkLocationRepository.swift; sourceTree = "<group>"; };
+		EB5F7BD823BE7B90004199A4 /* LocalBookmarkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBookmarkRepository.swift; sourceTree = "<group>"; };
+		EB5F7BDA23BE7C20004199A4 /* CoreDataPersistentContainerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistentContainerHandler.swift; sourceTree = "<group>"; };
+		EB5F7BDD23BE7D05004199A4 /* CoreDataPersistentContainerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistentContainerAssembly.swift; sourceTree = "<group>"; };
+		EB5F7BDF23BE7F9B004199A4 /* LocalBookmarkRepositoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBookmarkRepositoryAssembly.swift; sourceTree = "<group>"; };
 		EBFF6DDF23BCBF8A00528352 /* weatherforecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherforecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +149,26 @@
 			path = Handler;
 			sourceTree = "<group>";
 		};
+		EB5F7BA123BE5012004199A4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EB5F7BA223BE5052004199A4 /* BookmarkLocation.xcdatamodeld */,
+				EB5F7BD623BE7B06004199A4 /* BookmarkLocationRepository.swift */,
+				EB5F7BD823BE7B90004199A4 /* LocalBookmarkRepository.swift */,
+				EB5F7BDA23BE7C20004199A4 /* CoreDataPersistentContainerHandler.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EB5F7BDC23BE7CEB004199A4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EB5F7BDD23BE7D05004199A4 /* CoreDataPersistentContainerAssembly.swift */,
+				EB5F7BDF23BE7F9B004199A4 /* LocalBookmarkRepositoryAssembly.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		EBFF6DD623BCBF8A00528352 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +190,7 @@
 		EBFF6DE123BCBF8A00528352 /* weatherforecast */ = {
 			isa = PBXGroup;
 			children = (
+				EB5F7BA123BE5012004199A4 /* CoreData */,
 				EB5F7B8E23BDF352004199A4 /* Handler */,
 				EB1E9D1B23BD5FD00032A8E2 /* Utilities */,
 				EBFF6E4623BD495E00528352 /* Feature */,
@@ -246,6 +279,7 @@
 		EBFF6E4023BD450200528352 /* DependencyContainer */ = {
 			isa = PBXGroup;
 			children = (
+				EB5F7BDC23BE7CEB004199A4 /* CoreData */,
 				EBFF6E4123BD452500528352 /* Network */,
 			);
 			path = DependencyContainer;
@@ -390,18 +424,24 @@
 				EB1E9D1F23BD60370032A8E2 /* BookmarkLocationCardView.swift in Sources */,
 				EBFF6E2A23BD30D700528352 /* WeatherRepository.swift in Sources */,
 				EBFF6E2C23BD32DF00528352 /* OpenWeatherRepository.swift in Sources */,
+				EB5F7BA423BE5052004199A4 /* BookmarkLocation.xcdatamodeld in Sources */,
 				EBFF6E1723BD0C9800528352 /* Cloud.swift in Sources */,
 				EB5F7B9E23BE4830004199A4 /* PlaceInfo.swift in Sources */,
 				EB5F7B9023BDF4A7004199A4 /* DeviceLocationHandler.swift in Sources */,
 				EBFF6E1B23BD0E8500528352 /* MainInfo.swift in Sources */,
+				EB5F7BE023BE7F9B004199A4 /* LocalBookmarkRepositoryAssembly.swift in Sources */,
 				EBFF6E4323BD454B00528352 /* OpenWeatherRepositoryAssembly.swift in Sources */,
+				EB5F7BDB23BE7C20004199A4 /* CoreDataPersistentContainerHandler.swift in Sources */,
 				EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */,
 				EBFF6E4923BD499000528352 /* BookmarkedLocationViewController.swift in Sources */,
 				EBFF6E4523BD45CC00528352 /* HTTPClientAssembly.swift in Sources */,
 				EBFF6E3223BD374000528352 /* OpenWeatherEndpoint.swift in Sources */,
+				EB5F7BD923BE7B90004199A4 /* LocalBookmarkRepository.swift in Sources */,
 				EBFF6E0723BCC67C00528352 /* HTTPClient.swift in Sources */,
+				EB5F7BDE23BE7D05004199A4 /* CoreDataPersistentContainerAssembly.swift in Sources */,
 				EB1E9D1D23BD5FE80032A8E2 /* UIColor+Pallete.swift in Sources */,
 				EBFF6E4B23BD4B7200528352 /* BookmarkedLocationTableViewCell.swift in Sources */,
+				EB5F7BD723BE7B06004199A4 /* BookmarkLocationRepository.swift in Sources */,
 				EBFF6E3423BD396700528352 /* OpenWeatherCredential.swift in Sources */,
 				EBFF6E1D23BD0EEC00528352 /* AggregatedWeatherInfo.swift in Sources */,
 				EBFF6E1323BCE3B600528352 /* Wind.swift in Sources */,
@@ -704,6 +744,19 @@
 			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		EB5F7BA223BE5052004199A4 /* BookmarkLocation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EB5F7BA323BE5052004199A4 /* BookmarkLocation.xcdatamodel */,
+			);
+			currentVersion = EB5F7BA323BE5052004199A4 /* BookmarkLocation.xcdatamodel */;
+			path = BookmarkLocation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EBFF6DD723BCBF8A00528352 /* Project object */;
 }
