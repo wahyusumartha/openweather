@@ -21,6 +21,10 @@
 		EB5F7BDB23BE7C20004199A4 /* CoreDataPersistentContainerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BDA23BE7C20004199A4 /* CoreDataPersistentContainerHandler.swift */; };
 		EB5F7BDE23BE7D05004199A4 /* CoreDataPersistentContainerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BDD23BE7D05004199A4 /* CoreDataPersistentContainerAssembly.swift */; };
 		EB5F7BE023BE7F9B004199A4 /* LocalBookmarkRepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BDF23BE7F9B004199A4 /* LocalBookmarkRepositoryAssembly.swift */; };
+		EB5F7BE323BE897E004199A4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BE223BE897E004199A4 /* Coordinator.swift */; };
+		EB5F7BE523BE8B77004199A4 /* AppMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BE423BE8B77004199A4 /* AppMainCoordinator.swift */; };
+		EB5F7BE723BE9009004199A4 /* BookmarkedLocationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BE623BE9009004199A4 /* BookmarkedLocationFactory.swift */; };
+		EB5F7BE923BE908E004199A4 /* AddLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BE823BE908E004199A4 /* AddLocationCoordinator.swift */; };
 		EB61609423BD6EA10029BAC3 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */; };
 		EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */; };
 		EBFF6DEC23BCBF8B00528352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */; };
@@ -79,6 +83,10 @@
 		EB5F7BDA23BE7C20004199A4 /* CoreDataPersistentContainerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistentContainerHandler.swift; sourceTree = "<group>"; };
 		EB5F7BDD23BE7D05004199A4 /* CoreDataPersistentContainerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistentContainerAssembly.swift; sourceTree = "<group>"; };
 		EB5F7BDF23BE7F9B004199A4 /* LocalBookmarkRepositoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBookmarkRepositoryAssembly.swift; sourceTree = "<group>"; };
+		EB5F7BE223BE897E004199A4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		EB5F7BE423BE8B77004199A4 /* AppMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainCoordinator.swift; sourceTree = "<group>"; };
+		EB5F7BE623BE9009004199A4 /* BookmarkedLocationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedLocationFactory.swift; sourceTree = "<group>"; };
+		EB5F7BE823BE908E004199A4 /* AddLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationCoordinator.swift; sourceTree = "<group>"; };
 		EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		EBFF6DDF23BCBF8A00528352 /* weatherforecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherforecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +180,16 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		EB5F7BE123BE8970004199A4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				EB5F7BE223BE897E004199A4 /* Coordinator.swift */,
+				EB5F7BE423BE8B77004199A4 /* AppMainCoordinator.swift */,
+				EB5F7BE823BE908E004199A4 /* AddLocationCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		EB61609223BD6E770029BAC3 /* AddLocation */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +221,7 @@
 		EBFF6DE123BCBF8A00528352 /* weatherforecast */ = {
 			isa = PBXGroup;
 			children = (
+				EB5F7BE123BE8970004199A4 /* Coordinator */,
 				EB5F7BA123BE5012004199A4 /* CoreData */,
 				EB5F7B8E23BDF352004199A4 /* Handler */,
 				EB1E9D1B23BD5FD00032A8E2 /* Utilities */,
@@ -322,6 +341,7 @@
 				EBFF6E4823BD499000528352 /* BookmarkedLocationViewController.swift */,
 				EBFF6E4A23BD4B7200528352 /* BookmarkedLocationTableViewCell.swift */,
 				EB1E9D1E23BD60370032A8E2 /* BookmarkLocationCardView.swift */,
+				EB5F7BE623BE9009004199A4 /* BookmarkedLocationFactory.swift */,
 			);
 			path = BookmarkedLocation;
 			sourceTree = "<group>";
@@ -434,14 +454,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5F7BE523BE8B77004199A4 /* AppMainCoordinator.swift in Sources */,
 				EBFF6E2E23BD34B300528352 /* OpenWeatherURLConfiguration.swift in Sources */,
 				EB1E9D1F23BD60370032A8E2 /* BookmarkLocationCardView.swift in Sources */,
+				EB5F7BE323BE897E004199A4 /* Coordinator.swift in Sources */,
 				EBFF6E2A23BD30D700528352 /* WeatherRepository.swift in Sources */,
 				EBFF6E2C23BD32DF00528352 /* OpenWeatherRepository.swift in Sources */,
 				EB5F7BA423BE5052004199A4 /* BookmarkLocation.xcdatamodeld in Sources */,
 				EBFF6E1723BD0C9800528352 /* Cloud.swift in Sources */,
 				EB5F7B9E23BE4830004199A4 /* PlaceInfo.swift in Sources */,
 				EB5F7B9023BDF4A7004199A4 /* DeviceLocationHandler.swift in Sources */,
+				EB5F7BE723BE9009004199A4 /* BookmarkedLocationFactory.swift in Sources */,
 				EBFF6E1B23BD0E8500528352 /* MainInfo.swift in Sources */,
 				EB5F7BE023BE7F9B004199A4 /* LocalBookmarkRepositoryAssembly.swift in Sources */,
 				EBFF6E4323BD454B00528352 /* OpenWeatherRepositoryAssembly.swift in Sources */,
@@ -461,6 +484,7 @@
 				EBFF6E3423BD396700528352 /* OpenWeatherCredential.swift in Sources */,
 				EBFF6E1D23BD0EEC00528352 /* AggregatedWeatherInfo.swift in Sources */,
 				EBFF6E1323BCE3B600528352 /* Wind.swift in Sources */,
+				EB5F7BE923BE908E004199A4 /* AddLocationCoordinator.swift in Sources */,
 				EB61609423BD6EA10029BAC3 /* AddLocationViewController.swift in Sources */,
 				EBFF6E1523BCE40400528352 /* Weather.swift in Sources */,
 			);

@@ -86,9 +86,9 @@ final class AddLocationViewModel {
 	}
 	
 	private func bookmarkLocation(_ placeInfo: PlaceInfo) {
-//		isLoadingSubject.value = true
+		isLoadingSubject.value = true
 		self.localBookmarkRepository.saveLocation(placeInfo) { [weak self] (result) in
-//			self?.isLoadingSubject.value = false
+			self?.isLoadingSubject.value = false
 			switch result {
 			case .success:
 				print("Success")

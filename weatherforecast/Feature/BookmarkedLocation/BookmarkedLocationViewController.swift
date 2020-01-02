@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol BookmarkedLocationViewControllerNavigationDelegate: AnyObject {
+	func showAddLocation()
+}
+
 final class BookmarkedLocationViewController: UIViewController {
 
+	weak var navigationDelegate: BookmarkedLocationViewControllerNavigationDelegate?
+	
 	private let tableView: UITableView = {
 		let tableView = UITableView()
 		tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,8 +58,7 @@ final class BookmarkedLocationViewController: UIViewController {
 	}
 	
 	@objc private func showAddLocation() {
-		let viewController = AddLocationFactory().makeAddLocationViewController()
-		navigationController?.pushViewController(viewController, animated: true)
+		navigationDelegate?.showAddLocation()
 	}
 }
 

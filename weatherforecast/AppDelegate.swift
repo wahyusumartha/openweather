@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	// MARK: - Public Properties
 	var window: UIWindow?
+	
+	var appMainCoordinator: AppMainCoordinator?
 
 	// MARK: - Lifecycles
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -23,10 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	// MARK: - Private Methods
 	private func setupInitialUserInterface() {
 		window = UIWindow(frame: UIScreen.main.bounds)
-		
-		let rootViewController = BookmarkedLocationViewController()
-		let navigationController = UINavigationController(rootViewController: rootViewController)
-		window?.rootViewController = navigationController
-		window?.makeKeyAndVisible()
+		appMainCoordinator = AppMainCoordinator(window: window)
+		appMainCoordinator?.startFlow()
 	}
 }
