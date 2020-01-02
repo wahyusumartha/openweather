@@ -44,19 +44,21 @@ struct HTTPClient: HTTPClientProtocol {
 	func get(url: URL, then completionHandler: @escaping (Result<Data, HTTPClientError>) -> Void) {
 		let urlRequest = Self.makeURLRequest(from: url)
 		let task = session.dataTask(with: urlRequest) { (data, _, error) in
-			guard error == nil else {
-				let error = HTTPClientError.unknownError(message: error?.localizedDescription)
-				completionHandler(.failure(error))
-				return
-			}
+			DispatchQueue.main.async {
+				guard error == nil else {
+					let error = HTTPClientError.unknownError(message: error?.localizedDescription)
+					completionHandler(.failure(error))
+					return
+				}
 
-			guard let data = data else {
-				let emptyDataError = HTTPClientError.emptyData
-				completionHandler(.failure(emptyDataError))
-				return
+				guard let data = data else {
+					let emptyDataError = HTTPClientError.emptyData
+					completionHandler(.failure(emptyDataError))
+					return
+				}
+					
+				completionHandler(.success(data))
 			}
-				
-			completionHandler(.success(data))
 		}
 		
 		task.resume()
