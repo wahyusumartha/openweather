@@ -23,8 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	// MARK: - Private Methods
 	private func setupInitialUserInterface() {
 		window = UIWindow(frame: UIScreen.main.bounds)
-		window?.rootViewController = ViewController()
+		
+		let rootViewController = BookmarkedLocationViewController()
+		let navigationController = UINavigationController(rootViewController: rootViewController)
+		window?.rootViewController = navigationController
 		window?.makeKeyAndVisible()
 	}
 }
-
