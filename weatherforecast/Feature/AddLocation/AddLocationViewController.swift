@@ -10,9 +10,19 @@ import UIKit
 import MapKit
 import Observable
 
+protocol AddLocationViewControllerNavigationDelegate: AnyObject {
+	func showAlert(with message: String?)
+	func showBookmarkList()
+}
+
 final class AddLocationViewController: UIViewController {
 
 	// MARK: - Private Properties
+	weak var navigationDelegate: AddLocationViewControllerNavigationDelegate? {
+		didSet {
+			viewModel.navigationDelegate = navigationDelegate
+		}
+	}
 	
 	private let mapView: MKMapView = {
 		let mapView = MKMapView()
@@ -124,6 +134,7 @@ final class AddLocationViewController: UIViewController {
 			} else {
 				self?.progressIndicatorView.stopAnimating()
 			}
+			self?.view.isUserInteractionEnabled = !isLoading
 		}.add(to: &disposal)
 	}
 

@@ -13,7 +13,8 @@ import CoreLocation
 final class AddLocationViewModel {
 
 	// MARK: - Public Properties
-	
+	weak var navigationDelegate: AddLocationViewControllerNavigationDelegate?
+
 	var currentLocation: ImmutableObservable<CLLocation?> {
 		return currentLocationSubject
 	}
@@ -61,7 +62,7 @@ final class AddLocationViewModel {
 			case .success(let location):
 				self?.currentLocationSubject.value = location
 			case .failure(let error):
-				self?.errorMessageSubject.value = error.localizedDescription
+				self?.navigationDelegate?.showAlert(with: error.localizedDescription)
 			}
 		}
 	}
@@ -80,7 +81,7 @@ final class AddLocationViewModel {
 													case .success(let placeInfo):
 														self?.bookmarkLocation(placeInfo)
 													case .failure(let error):
-														print("\(error)")
+														self?.navigationDelegate?.showAlert(with: error.localizedDescription)
 													}
 		}
 	}
@@ -91,9 +92,9 @@ final class AddLocationViewModel {
 			self?.isLoadingSubject.value = false
 			switch result {
 			case .success:
-				print("Success")
+				self?.navigationDelegate?.showBookmarkList()
 			case .failure(let error):
-				print("Error: \(error)")
+				self?.navigationDelegate?.showAlert(with: error.localizedDescription)
 			}
 		}
 	}

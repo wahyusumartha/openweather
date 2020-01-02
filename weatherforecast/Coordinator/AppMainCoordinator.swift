@@ -10,6 +10,7 @@ import UIKit
 
 final class AppMainCoordinator: Coordinator {
 	private let window: UIWindow?
+	private var addLocationCoordinator: AddLocationCoordinator?
 	
 	init(window: UIWindow?) {
 		self.window = window
@@ -26,7 +27,7 @@ final class AppMainCoordinator: Coordinator {
 
 extension AppMainCoordinator: BookmarkedLocationViewControllerNavigationDelegate {
 	func showAddLocation() {
-		let addLocationCoordinator = AddLocationCoordinator(navigationController: window?.rootViewController as? UINavigationController)
-		addLocationCoordinator.startFlow()
+		addLocationCoordinator = AddLocationCoordinator(navigationController: window?.rootViewController as? UINavigationController)
+		addLocationCoordinator?.startFlow()
 	}
 }

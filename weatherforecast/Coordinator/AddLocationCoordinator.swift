@@ -10,14 +10,31 @@ import UIKit
 
 final class AddLocationCoordinator: Coordinator {
 
-	private weak var navigationController: UINavigationController?
-	
+	private let navigationController: UINavigationController?
+
 	init(navigationController: UINavigationController?) {
 		self.navigationController = navigationController
 	}
 
 	func startFlow() {
 		let addLocationViewController = AddLocationFactory().makeAddLocationViewController()
+		addLocationViewController.navigationDelegate = self
 		navigationController?.pushViewController(addLocationViewController, animated: true)
+	}
+}
+
+extension AddLocationCoordinator: AddLocationViewControllerNavigationDelegate {
+	func showAlert(with message: String?) {
+		let alertController = UIAlertController(title: "Error",
+												message: message,
+												preferredStyle: .alert)
+		let action = UIAlertAction(title: "OK",
+								   style: .default)
+		alertController.addAction(action)
+		navigationController?.present(alertController, animated: true)
+	}
+	
+	func showBookmarkList() {
+		navigationController?.popViewController(animated: true)
 	}
 }
