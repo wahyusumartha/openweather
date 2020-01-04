@@ -56,6 +56,7 @@ final class BookmarkedLocationViewModelTests: XCTestCase {
 		viewModel.retrieveBookmarkedLocations()
 		
 		XCTAssertEqual(viewModel.items.value.count, infoList.infos.count)
+		XCTAssertEqual(viewModel.numberOfRows, infoList.infos.count)
 	}
 
 	func testRetrieveBookmarkLocation_shouldShowErrorMessage_whenRequestFailed() {
