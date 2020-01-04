@@ -36,6 +36,7 @@
 		EB5F7C0E23C0EA4D004199A4 /* DetailWeatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0D23C0EA4D004199A4 /* DetailWeatherInfoViewController.swift */; };
 		EB5F7C1023C0EA62004199A4 /* DetailWeatherInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0F23C0EA62004199A4 /* DetailWeatherInfoFactory.swift */; };
 		EB5F7C1223C0EAE3004199A4 /* DetailWeatherInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C1123C0EAE3004199A4 /* DetailWeatherInfoCoordinator.swift */; };
+		EB5F7C1723C138AC004199A4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EB5F7C1623C138AC004199A4 /* Kingfisher */; };
 		EB61609423BD6EA10029BAC3 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */; };
 		EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */; };
 		EBFF6DEC23BCBF8B00528352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */; };
@@ -151,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5F7C1723C138AC004199A4 /* Kingfisher in Frameworks */,
 				EBFF6E3F23BD441300528352 /* Swinject in Frameworks */,
 				EB5F7B9523BE01B7004199A4 /* Observable in Frameworks */,
 			);
@@ -430,6 +432,7 @@
 			packageProductDependencies = (
 				EBFF6E3E23BD441300528352 /* Swinject */,
 				EB5F7B9423BE01B7004199A4 /* Observable */,
+				EB5F7C1623C138AC004199A4 /* Kingfisher */,
 			);
 			productName = weatherforecast;
 			productReference = EBFF6DDF23BCBF8A00528352 /* weatherforecast.app */;
@@ -484,6 +487,7 @@
 			packageReferences = (
 				EBFF6E3D23BD441300528352 /* XCRemoteSwiftPackageReference "Swinject" */,
 				EB5F7B9323BE01B7004199A4 /* XCRemoteSwiftPackageReference "Observable" */,
+				EB5F7C1523C138AC004199A4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = EBFF6DE023BCBF8A00528352 /* Products */;
 			projectDirPath = "";
@@ -849,6 +853,14 @@
 				minimumVersion = 1.6.2;
 			};
 		};
+		EB5F7C1523C138AC004199A4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.12.0;
+			};
+		};
 		EBFF6E3D23BD441300528352 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:Swinject/Swinject.git";
@@ -864,6 +876,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EB5F7B9323BE01B7004199A4 /* XCRemoteSwiftPackageReference "Observable" */;
 			productName = Observable;
+		};
+		EB5F7C1623C138AC004199A4 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB5F7C1523C138AC004199A4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		EBFF6E3E23BD441300528352 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;

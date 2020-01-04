@@ -14,9 +14,10 @@ final class BookmarkedLocationViewModel {
 	struct BookmarkItem {
 		let locationName: String
 		let windSpeed: Int
-		let windDegree: Int
+		let windDegree: Double
 		let humidity: Int
 		let temperature: Int
+		let iconName: String
 	}
 
 	weak var navigationDelegate: BookmarkedLocationViewControllerNavigationDelegate?
@@ -67,13 +68,21 @@ final class BookmarkedLocationViewModel {
 			case .success(let infoList):
 				self?.itemsSubject.value = infoList.infos.map { BookmarkItem(locationName: $0.cityName,
 																			windSpeed: Int($0.wind.speed),
-																			windDegree: Int($0.wind.degree),
+																			windDegree: $0.wind.degree,
 																			humidity: Int($0.mainInfo.humidity),
-																			temperature: Int($0.mainInfo.temperature)) }
+																			temperature: Int($0.mainInfo.temperature),
+																			iconName: $0.weathers.first?.iconId ?? "") }
 			case .failure(let error):
 				self?.navigationDelegate?.showErrorMessage(error.localizedDescription)
 			}
 		}
 	}
 	
+}
+
+extension BookmarkedLocationViewModel.BookmarkItem {
+	var iconUrl: URL? {
+		let baseUrl = "https://openweathermap.org/img/wn/"
+		return URL(string: baseUrl + iconName + "@2x.png")
+	}
 }

@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Kingfisher",
+        "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
+        "state": {
+          "branch": null,
+          "revision": "2f9d171f17869768f6dbec1d039b851e2503af35",
+          "version": "5.12.0"
+        }
+      },
+      {
         "package": "Observable",
         "repositoryURL": "git@github.com:roberthein/Observable.git",
         "state": {

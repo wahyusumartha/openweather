@@ -24,7 +24,7 @@ final class BookmarkLocationCardView: UIView {
 	let weatherIconImageView: UIImageView = {
 		let weatherIconImageView = UIImageView()
 		weatherIconImageView.translatesAutoresizingMaskIntoConstraints = false
-		weatherIconImageView.backgroundColor = .bumpyMagenta1000
+		weatherIconImageView.backgroundColor = .clear
 		return weatherIconImageView
 	}()
 		
