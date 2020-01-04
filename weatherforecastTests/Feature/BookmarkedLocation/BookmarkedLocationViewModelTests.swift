@@ -86,6 +86,7 @@ final class BookmarkedLocationViewControllerNavigationDelegateMock: BookmarkedLo
 	
 	private (set) var didShowErrorMessage = false
 	private (set) var didShowAddLocation = false
+	private (set) var didShowDetailWeatherInfo = false
 	
 	func showErrorMessage(_ message: String?) {
 		didShowErrorMessage = true
@@ -93,5 +94,9 @@ final class BookmarkedLocationViewControllerNavigationDelegateMock: BookmarkedLo
 	
 	func showAddLocation() {
 		didShowAddLocation = true
+	}
+	
+	func showDetailWeatherInfo() {
+		didShowDetailWeatherInfo = true
 	}
 }

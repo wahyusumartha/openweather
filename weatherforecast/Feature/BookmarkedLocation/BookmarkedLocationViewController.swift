@@ -12,13 +12,14 @@ import Observable
 protocol BookmarkedLocationViewControllerNavigationDelegate: AnyObject {
 	func showAddLocation()
 	func showErrorMessage(_ message: String?)
+	func showDetailWeatherInfo()
 }
 
 final class BookmarkedLocationViewController: UIViewController {
 
 	weak var navigationDelegate: BookmarkedLocationViewControllerNavigationDelegate? {
 		didSet {
-			
+			viewModel.navigationDelegate = navigationDelegate
 		}
 	}
 
@@ -114,5 +115,9 @@ extension BookmarkedLocationViewController: UITableViewDataSource {
 extension BookmarkedLocationViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 100
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		viewModel.showDetailWeatherInfo()
 	}
 }

@@ -11,6 +11,7 @@ import UIKit
 final class AppMainCoordinator: Coordinator {
 	private let window: UIWindow?
 	private var addLocationCoordinator: AddLocationCoordinator?
+	private var detailWeatherInfoCoordinator: DetailWeatherInfoCoordinator?
 	
 	init(window: UIWindow?) {
 		self.window = window
@@ -32,6 +33,19 @@ extension AppMainCoordinator: BookmarkedLocationViewControllerNavigationDelegate
 	}
 	
 	func showErrorMessage(_ message: String?) {
+		let alertController = UIAlertController(title: "Error",
+												message: message,
+												preferredStyle: .alert)
+		let action = UIAlertAction(title: "OK",
+								   style: .default)
+		alertController.addAction(action)
 		
+		let navigationController = window?.rootViewController as? UINavigationController
+		navigationController?.present(alertController, animated: true)
+	}
+	
+	func showDetailWeatherInfo() {
+		detailWeatherInfoCoordinator = DetailWeatherInfoCoordinator(navigationController: window?.rootViewController as? UINavigationController)
+		detailWeatherInfoCoordinator?.startFlow()
 	}
 }

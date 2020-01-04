@@ -33,6 +33,9 @@
 		EB5F7C0723C0E04C004199A4 /* BookmarkedLocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0623C0E04C004199A4 /* BookmarkedLocationViewModelTests.swift */; };
 		EB5F7C0923C0E075004199A4 /* LocalBookmarkRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0823C0E075004199A4 /* LocalBookmarkRepositoryMock.swift */; };
 		EB5F7C0B23C0E131004199A4 /* OpenWeatherRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0A23C0E131004199A4 /* OpenWeatherRepositoryMock.swift */; };
+		EB5F7C0E23C0EA4D004199A4 /* DetailWeatherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0D23C0EA4D004199A4 /* DetailWeatherInfoViewController.swift */; };
+		EB5F7C1023C0EA62004199A4 /* DetailWeatherInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0F23C0EA62004199A4 /* DetailWeatherInfoFactory.swift */; };
+		EB5F7C1223C0EAE3004199A4 /* DetailWeatherInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C1123C0EAE3004199A4 /* DetailWeatherInfoCoordinator.swift */; };
 		EB61609423BD6EA10029BAC3 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */; };
 		EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */; };
 		EBFF6DEC23BCBF8B00528352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */; };
@@ -104,6 +107,9 @@
 		EB5F7C0623C0E04C004199A4 /* BookmarkedLocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedLocationViewModelTests.swift; sourceTree = "<group>"; };
 		EB5F7C0823C0E075004199A4 /* LocalBookmarkRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBookmarkRepositoryMock.swift; sourceTree = "<group>"; };
 		EB5F7C0A23C0E131004199A4 /* OpenWeatherRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherRepositoryMock.swift; sourceTree = "<group>"; };
+		EB5F7C0D23C0EA4D004199A4 /* DetailWeatherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWeatherInfoViewController.swift; sourceTree = "<group>"; };
+		EB5F7C0F23C0EA62004199A4 /* DetailWeatherInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWeatherInfoFactory.swift; sourceTree = "<group>"; };
+		EB5F7C1123C0EAE3004199A4 /* DetailWeatherInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWeatherInfoCoordinator.swift; sourceTree = "<group>"; };
 		EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		EBFF6DDF23BCBF8A00528352 /* weatherforecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherforecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +209,7 @@
 				EB5F7BE223BE897E004199A4 /* Coordinator.swift */,
 				EB5F7BE423BE8B77004199A4 /* AppMainCoordinator.swift */,
 				EB5F7BE823BE908E004199A4 /* AddLocationCoordinator.swift */,
+				EB5F7C1123C0EAE3004199A4 /* DetailWeatherInfoCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -229,6 +236,15 @@
 				EB5F7C0623C0E04C004199A4 /* BookmarkedLocationViewModelTests.swift */,
 			);
 			path = BookmarkedLocation;
+			sourceTree = "<group>";
+		};
+		EB5F7C0C23C0EA35004199A4 /* DetailWeatherInformation */ = {
+			isa = PBXGroup;
+			children = (
+				EB5F7C0D23C0EA4D004199A4 /* DetailWeatherInfoViewController.swift */,
+				EB5F7C0F23C0EA62004199A4 /* DetailWeatherInfoFactory.swift */,
+			);
+			path = DetailWeatherInformation;
 			sourceTree = "<group>";
 		};
 		EB61609223BD6E770029BAC3 /* AddLocation */ = {
@@ -375,6 +391,7 @@
 		EBFF6E4623BD495E00528352 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				EB5F7C0C23C0EA35004199A4 /* DetailWeatherInformation */,
 				EB61609223BD6E770029BAC3 /* AddLocation */,
 				EBFF6E4723BD496600528352 /* BookmarkedLocation */,
 			);
@@ -535,8 +552,11 @@
 				EB5F7C0323C0DBEA004199A4 /* String+Localize.swift in Sources */,
 				EB5F7BD723BE7B06004199A4 /* BookmarkLocationRepository.swift in Sources */,
 				EBFF6E3423BD396700528352 /* OpenWeatherCredential.swift in Sources */,
+				EB5F7C1223C0EAE3004199A4 /* DetailWeatherInfoCoordinator.swift in Sources */,
 				EBFF6E1D23BD0EEC00528352 /* AggregatedWeatherInfo.swift in Sources */,
 				EBFF6E1323BCE3B600528352 /* Wind.swift in Sources */,
+				EB5F7C0E23C0EA4D004199A4 /* DetailWeatherInfoViewController.swift in Sources */,
+				EB5F7C1023C0EA62004199A4 /* DetailWeatherInfoFactory.swift in Sources */,
 				EB5F7BE923BE908E004199A4 /* AddLocationCoordinator.swift in Sources */,
 				EB61609423BD6EA10029BAC3 /* AddLocationViewController.swift in Sources */,
 				EBFF6E1523BCE40400528352 /* Weather.swift in Sources */,

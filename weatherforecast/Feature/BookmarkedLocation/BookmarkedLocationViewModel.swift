@@ -9,7 +9,7 @@
 import Foundation
 import Observable
 
-struct BookmarkedLocationViewModel {
+final class BookmarkedLocationViewModel {
 
 	struct BookmarkItem {
 		let locationName: String
@@ -40,12 +40,12 @@ struct BookmarkedLocationViewModel {
 	}
 
 	func retrieveBookmarkedLocations() {
-		localBookmarkRepository.retrieveAllLocations { (result) in
+		localBookmarkRepository.retrieveAllLocations { [weak self] (result) in
 			switch result {
 			case .success(let placeInfos):
-				retrieveWeatherInfo(placeInfos: placeInfos)
+				self?.retrieveWeatherInfo(placeInfos: placeInfos)
 			case .failure(let error):
-				navigationDelegate?.showErrorMessage(error.localizedDescription)
+				self?.navigationDelegate?.showErrorMessage(error.localizedDescription)
 			}
 		}
 	}
@@ -53,20 +53,25 @@ struct BookmarkedLocationViewModel {
 	func showAddLocation() {
 		navigationDelegate?.showAddLocation()
 	}
+
+	func showDetailWeatherInfo() {
+		navigationDelegate?.showDetailWeatherInfo()
+	}
+	
 	
 	private func retrieveWeatherInfo(placeInfos: [PlaceInfo]) {
 		let cityIds = placeInfos.map { $0.identifier }
 		let uniqueCityIds = Set(cityIds).map { $0 }
-		openWeatherRepository.weatherForecastByCityIds(uniqueCityIds) { (result) in
+		openWeatherRepository.weatherForecastByCityIds(uniqueCityIds) { [weak self] (result) in
 			switch result {
 			case .success(let infoList):
-				self.itemsSubject.value = infoList.infos.map { BookmarkItem(locationName: $0.cityName,
+				self?.itemsSubject.value = infoList.infos.map { BookmarkItem(locationName: $0.cityName,
 																			windSpeed: Int($0.wind.speed),
 																			windDegree: Int($0.wind.degree),
 																			humidity: Int($0.mainInfo.humidity),
 																			temperature: Int($0.mainInfo.temperature)) }
 			case .failure(let error):
-				self.navigationDelegate?.showErrorMessage(error.localizedDescription)
+				self?.navigationDelegate?.showErrorMessage(error.localizedDescription)
 			}
 		}
 	}
