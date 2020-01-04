@@ -19,6 +19,8 @@ struct BookmarkedLocationViewModel {
 		let temperature: Int
 	}
 
+	weak var navigationDelegate: BookmarkedLocationViewControllerNavigationDelegate?
+	
 	var numberOfRows: Int {
 		return itemsSubject.value.count
 	}
@@ -30,7 +32,7 @@ struct BookmarkedLocationViewModel {
 	private let localBookmarkRepository: BookmarkLocationRepository
 	private let openWeatherRepository: WeatherRepository
 	private let itemsSubject: Observable<[BookmarkItem]> = Observable([])
-	
+
 	init(localBookmarkRepository: BookmarkLocationRepository,
 		 openWeatherRepository: WeatherRepository) {
 		self.localBookmarkRepository = localBookmarkRepository
@@ -43,9 +45,13 @@ struct BookmarkedLocationViewModel {
 			case .success(let placeInfos):
 				retrieveWeatherInfo(placeInfos: placeInfos)
 			case .failure(let error):
-				print("\(error.localizedDescription)")
+				navigationDelegate?.showErrorMessage(error.localizedDescription)
 			}
 		}
+	}
+
+	func showAddLocation() {
+		navigationDelegate?.showAddLocation()
 	}
 	
 	private func retrieveWeatherInfo(placeInfos: [PlaceInfo]) {
@@ -60,7 +66,7 @@ struct BookmarkedLocationViewModel {
 																			humidity: Int($0.mainInfo.humidity),
 																			temperature: Int($0.mainInfo.temperature)) }
 			case .failure(let error):
-				print("List Error: \(error.localizedDescription)")
+				self.navigationDelegate?.showErrorMessage(error.localizedDescription)
 			}
 		}
 	}

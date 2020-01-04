@@ -11,11 +11,16 @@ import Observable
 
 protocol BookmarkedLocationViewControllerNavigationDelegate: AnyObject {
 	func showAddLocation()
+	func showErrorMessage(_ message: String?)
 }
 
 final class BookmarkedLocationViewController: UIViewController {
 
-	weak var navigationDelegate: BookmarkedLocationViewControllerNavigationDelegate?
+	weak var navigationDelegate: BookmarkedLocationViewControllerNavigationDelegate? {
+		didSet {
+			
+		}
+	}
 
 	private let viewModel: BookmarkedLocationViewModel
 	private var disposal = Disposal()
@@ -78,7 +83,7 @@ final class BookmarkedLocationViewController: UIViewController {
 	}
 	
 	@objc private func showAddLocation() {
-		navigationDelegate?.showAddLocation()
+		viewModel.showAddLocation()
 	}
 	
 	private func bindObservable() {

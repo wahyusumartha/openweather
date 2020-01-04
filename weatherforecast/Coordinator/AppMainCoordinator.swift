@@ -30,4 +30,8 @@ extension AppMainCoordinator: BookmarkedLocationViewControllerNavigationDelegate
 		addLocationCoordinator = AddLocationCoordinator(navigationController: window?.rootViewController as? UINavigationController)
 		addLocationCoordinator?.startFlow()
 	}
+	
+	func showErrorMessage(_ message: String?) {
+		
+	}
 }

@@ -30,6 +30,9 @@
 		EB5F7BEF23BEB432004199A4 /* BookmarkLocationTableViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7BEE23BEB432004199A4 /* BookmarkLocationTableViewCellConfigurator.swift */; };
 		EB5F7BFF23C0DBA7004199A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB5F7C0123C0DBA7004199A4 /* Localizable.strings */; };
 		EB5F7C0323C0DBEA004199A4 /* String+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0223C0DBEA004199A4 /* String+Localize.swift */; };
+		EB5F7C0723C0E04C004199A4 /* BookmarkedLocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0623C0E04C004199A4 /* BookmarkedLocationViewModelTests.swift */; };
+		EB5F7C0923C0E075004199A4 /* LocalBookmarkRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0823C0E075004199A4 /* LocalBookmarkRepositoryMock.swift */; };
+		EB5F7C0B23C0E131004199A4 /* OpenWeatherRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F7C0A23C0E131004199A4 /* OpenWeatherRepositoryMock.swift */; };
 		EB61609423BD6EA10029BAC3 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */; };
 		EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */; };
 		EBFF6DEC23BCBF8B00528352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */; };
@@ -98,6 +101,9 @@
 		EB5F7BF923C0DB40004199A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB5F7C0023C0DBA7004199A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB5F7C0223C0DBEA004199A4 /* String+Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localize.swift"; sourceTree = "<group>"; };
+		EB5F7C0623C0E04C004199A4 /* BookmarkedLocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedLocationViewModelTests.swift; sourceTree = "<group>"; };
+		EB5F7C0823C0E075004199A4 /* LocalBookmarkRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBookmarkRepositoryMock.swift; sourceTree = "<group>"; };
+		EB5F7C0A23C0E131004199A4 /* OpenWeatherRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherRepositoryMock.swift; sourceTree = "<group>"; };
 		EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		EBFF6DDF23BCBF8A00528352 /* weatherforecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherforecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +215,22 @@
 			path = Localisation;
 			sourceTree = "<group>";
 		};
+		EB5F7C0423C0E027004199A4 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				EB5F7C0523C0E033004199A4 /* BookmarkedLocation */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		EB5F7C0523C0E033004199A4 /* BookmarkedLocation */ = {
+			isa = PBXGroup;
+			children = (
+				EB5F7C0623C0E04C004199A4 /* BookmarkedLocationViewModelTests.swift */,
+			);
+			path = BookmarkedLocation;
+			sourceTree = "<group>";
+		};
 		EB61609223BD6E770029BAC3 /* AddLocation */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +282,7 @@
 		EBFF6DF823BCBF8C00528352 /* weatherforecastTests */ = {
 			isa = PBXGroup;
 			children = (
+				EB5F7C0423C0E027004199A4 /* Feature */,
 				EBFF6E1E23BD0F7700528352 /* Model */,
 				EBFF6E0E23BCCC3400528352 /* Mock */,
 				EBFF6E0823BCCBBD00528352 /* Network */,
@@ -298,6 +321,8 @@
 			children = (
 				EBFF6E0F23BCCC4000528352 /* URLSessionProtocolMock.swift */,
 				EBFF6E3923BD3EA200528352 /* HTTPClientMock.swift */,
+				EB5F7C0823C0E075004199A4 /* LocalBookmarkRepositoryMock.swift */,
+				EB5F7C0A23C0E131004199A4 /* OpenWeatherRepositoryMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -522,12 +547,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5F7C0723C0E04C004199A4 /* BookmarkedLocationViewModelTests.swift in Sources */,
 				EBFF6E1023BCCC4000528352 /* URLSessionProtocolMock.swift in Sources */,
 				EBFF6E2023BD0F9000528352 /* CloudTests.swift in Sources */,
 				EB5F7BA023BE4CCA004199A4 /* PlaceInfoTests.swift in Sources */,
 				EBFF6E2823BD1BDB00528352 /* AggregatedWeatherInfoTests.swift in Sources */,
 				EBFF6E2423BD124200528352 /* WeatherTests.swift in Sources */,
+				EB5F7C0B23C0E131004199A4 /* OpenWeatherRepositoryMock.swift in Sources */,
 				EBFF6E3A23BD3EA200528352 /* HTTPClientMock.swift in Sources */,
+				EB5F7C0923C0E075004199A4 /* LocalBookmarkRepositoryMock.swift in Sources */,
 				EBFF6E2623BD137300528352 /* MainInfoTests.swift in Sources */,
 				EBFF6E0A23BCCBD600528352 /* HTTPClientTests.swift in Sources */,
 				EBFF6DFA23BCBF8C00528352 /* weatherforecastTests.swift in Sources */,
