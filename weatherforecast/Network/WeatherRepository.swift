@@ -20,4 +20,7 @@ protocol WeatherRepository {
 	func retrievePlaceInformation(latitude: Double,
 								  longitude: Double,
 								  completionHandler: @escaping (Result<PlaceInfo, WeatherRepositoryError>) -> Void)
+	
+	func weatherForecastByCityIds(_ cityIds: [Int],
+								  completionHandler: @escaping (Result<AggregatedWeatherInfoList, WeatherRepositoryError>) -> Void)
 }

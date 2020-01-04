@@ -65,4 +65,26 @@ struct OpenWeatherRepository: WeatherRepository {
 			}
 		}
 	}
+	
+	func weatherForecastByCityIds(_ cityIds: [Int],
+								  completionHandler: @escaping (Result<AggregatedWeatherInfoList, WeatherRepositoryError>) -> Void) {
+		let endPoint = OpenWeatherEndpoint.weatherForecastByCityIds(cityIds)
+		
+		httpClient.get(url: endPoint.url) { (result) in
+			switch result {
+				case .success(let data):
+					guard let aggregatedWeatherInfoList = try? JSONDecoder().decode(AggregatedWeatherInfoList.self, from: data)
+					else {
+						let error = WeatherRepositoryError.invalidJSONData
+						completionHandler(.failure(error))
+						return
+					}
+					
+					completionHandler(.success(aggregatedWeatherInfoList))
+				case .failure(let responseError):
+					let error = WeatherRepositoryError.unknownError(message: responseError.localizedDescription)
+					completionHandler(.failure(error))
+			}
+		}
+	}
 }

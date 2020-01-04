@@ -13,6 +13,8 @@ struct AggregatedWeatherInfo: Equatable {
 	let cloud: Cloud
 	let wind: Wind
 	let mainInfo: MainInfo
+	let cityId: Int
+	let cityName: String
 }
 
 extension AggregatedWeatherInfo: Codable {
@@ -21,5 +23,7 @@ extension AggregatedWeatherInfo: Codable {
 		case mainInfo = "main"
 		case cloud = "clouds"
 		case wind
+		case cityId = "id"
+		case cityName = "name"
 	}
 }
