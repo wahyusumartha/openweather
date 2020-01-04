@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  weatherforecast
+
+  Created by Wahyu Sumartha Priya Dharma on 04.01.20.
+  Copyright © 2020 Wahyu Sumartha Priya Dharma. All rights reserved.
+*/
+
+"bookmark_button_title" = "Bookmark";
+
+"temperature_in_metrics_format" = "%@ °C";
+"wind_speed_in_metrics_format" = "%@ m/s";
+
+"temperature_in_imperials_format" = "%@ °F";
+"wind_speed_in_imperials_format" = "%@ mph";
+
+"humidity_percentage" = "%@ %%";

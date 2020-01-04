@@ -19,15 +19,21 @@ final class AggregatedWeatherInfoTests: XCTestCase {
 		let cloud = Cloud(cloudinessPercentage: 80)
 		let wind = Wind(speed: 20, degree: 248)
 		let mainInfo = MainInfo(temperature: 30, humidity: 50)
+		let cityId = 12345
+		let cityName = "Hamburg"
 		let aggregatedWeatherInfo = AggregatedWeatherInfo(weathers: [weather],
 														  cloud: cloud,
 														  wind: wind,
-														  mainInfo: mainInfo)
+														  mainInfo: mainInfo,
+														  cityId: cityId,
+														  cityName: cityName)
 		
 		XCTAssertEqual(aggregatedWeatherInfo.weathers, [weather])
 		XCTAssertEqual(aggregatedWeatherInfo.cloud, cloud)
 		XCTAssertEqual(aggregatedWeatherInfo.wind, wind)
 		XCTAssertEqual(aggregatedWeatherInfo.mainInfo, mainInfo)
+		XCTAssertEqual(aggregatedWeatherInfo.cityId, cityId)
+		XCTAssertEqual(aggregatedWeatherInfo.cityName, cityName)
 	}
 	
 	func testInitialisation_shouldCreateAnObject_whenJSONIsValid() {

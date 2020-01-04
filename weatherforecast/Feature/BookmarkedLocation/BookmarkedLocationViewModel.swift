@@ -13,10 +13,10 @@ struct BookmarkedLocationViewModel {
 
 	struct BookmarkItem {
 		let locationName: String
-		let windSpeed: Double
-		let windDegree: Double
-		let humidity: Double
-		let temperature: Double
+		let windSpeed: Int
+		let windDegree: Int
+		let humidity: Int
+		let temperature: Int
 	}
 
 	var numberOfRows: Int {
@@ -55,10 +55,10 @@ struct BookmarkedLocationViewModel {
 			switch result {
 			case .success(let infoList):
 				self.itemsSubject.value = infoList.infos.map { BookmarkItem(locationName: $0.cityName,
-																			windSpeed: $0.wind.speed,
-																			windDegree: $0.wind.degree,
-																			humidity: $0.mainInfo.humidity,
-																			temperature: $0.mainInfo.temperature) }
+																			windSpeed: Int($0.wind.speed),
+																			windDegree: Int($0.wind.degree),
+																			humidity: Int($0.mainInfo.humidity),
+																			temperature: Int($0.mainInfo.temperature)) }
 			case .failure(let error):
 				print("List Error: \(error.localizedDescription)")
 			}

@@ -12,10 +12,10 @@ struct BookmarkLocationTableViewCellConfigurator {
 	
 	func configureCell(_ cell: BookmarkedLocationTableViewCell,
 					   with item: BookmarkedLocationViewModel.BookmarkItem) {
-		cell.cardView.humidityLabel.text = "\(item.humidity)"
-		cell.cardView.temperatureLabel.text = "\(item.temperature)"
+		cell.cardView.humidityLabel.text = String(format: "humidity_percentage".localized, "\(item.humidity)")
+		cell.cardView.temperatureLabel.text = String(format: "temperature_in_metrics_format".localized, "\(item.temperature)")
 		cell.cardView.locationNameLabel.text = "\(item.locationName)"
-		cell.cardView.windSpeedLabel.text = "\(item.windSpeed)"
+		cell.cardView.windSpeedLabel.text = String(format: "wind_speed_in_metrics_format".localized, "\(item.windSpeed)")
 	}
 	
 }

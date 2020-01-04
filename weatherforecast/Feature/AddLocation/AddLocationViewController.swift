@@ -37,7 +37,7 @@ final class AddLocationViewController: UIViewController {
 		bookmarkButton.backgroundColor = .actionBlue900
 		bookmarkButton.setTitleColor(.authenticBlue50, for: .normal)
 		bookmarkButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-		bookmarkButton.setTitle("Bookmark", for: .normal)
+		bookmarkButton.setTitle("bookmark_button_title".localized, for: .normal)
 		bookmarkButton.layer.cornerRadius = 4
 		return bookmarkButton
 	}()
