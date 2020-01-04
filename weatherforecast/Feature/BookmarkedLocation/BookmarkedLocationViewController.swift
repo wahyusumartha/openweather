@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Observable
 
 protocol BookmarkedLocationViewControllerNavigationDelegate: AnyObject {
 	func showAddLocation()
@@ -15,6 +16,9 @@ protocol BookmarkedLocationViewControllerNavigationDelegate: AnyObject {
 final class BookmarkedLocationViewController: UIViewController {
 
 	weak var navigationDelegate: BookmarkedLocationViewControllerNavigationDelegate?
+
+	private let viewModel: BookmarkedLocationViewModel
+	private var disposal = Disposal()
 	
 	private let tableView: UITableView = {
 		let tableView = UITableView()
@@ -22,8 +26,23 @@ final class BookmarkedLocationViewController: UIViewController {
 		tableView.separatorStyle = .none
 		return tableView
 	}()
+
+	init(viewModel: BookmarkedLocationViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
 	
-    override func viewDidLoad() {
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		viewModel.retrieveBookmarkedLocations()
+	}
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 	
 		tableView.register(BookmarkedLocationTableViewCell.self,
@@ -32,6 +51,7 @@ final class BookmarkedLocationViewController: UIViewController {
 		setupSubviews()
 		setupConstraints()
 		setupRightNavigationBarButtonItem()
+		bindObservable()
 	}
    
 	private func setupSubviews() {
@@ -60,6 +80,12 @@ final class BookmarkedLocationViewController: UIViewController {
 	@objc private func showAddLocation() {
 		navigationDelegate?.showAddLocation()
 	}
+	
+	private func bindObservable() {
+		viewModel.items.observe { [weak self] (items, _) in
+			self?.tableView.reloadData()
+		}.add(to: &disposal)
+	}
 }
 
 extension BookmarkedLocationViewController: UITableViewDataSource {
@@ -68,12 +94,15 @@ extension BookmarkedLocationViewController: UITableViewDataSource {
 		else {
 			return UITableViewCell()
 		}
-	
+
+		let configurator = BookmarkLocationTableViewCellConfigurator()
+		configurator.configureCell(cell,
+								   with: viewModel.items.value[indexPath.row])
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 10
+		return viewModel.numberOfRows
 	}
 }
 
