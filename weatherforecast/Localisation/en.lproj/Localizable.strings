@@ -33,3 +33,5 @@
 
 "confirmation_alert_title" = "Confirmation";
 "bookmark_remove_confirmation_message" = "Are you sure to delete %@ from bookmark list?";
+
+"empty_bookmark_message" = "You don't have saved location yet, please tap + icon to add new location";

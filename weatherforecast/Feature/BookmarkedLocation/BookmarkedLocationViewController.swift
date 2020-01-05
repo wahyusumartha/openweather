@@ -105,7 +105,16 @@ final class BookmarkedLocationViewController: UIViewController {
 	private func bindObservable() {
 		viewModel.items.observe { [weak self] (items, _) in
 			self?.tableView.reloadData()
+			self?.setEmptyTableView()
 		}.add(to: &disposal)
+	}
+	
+	private func setEmptyTableView() {
+		if viewModel.numberOfRows == 0 {
+			tableView.setEmptyView(message: "empty_bookmark_message".localized)
+		} else {
+			tableView.removeEmptyView()
+		}
 	}
 }
 
