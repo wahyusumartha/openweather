@@ -21,3 +21,10 @@
 "humidity_title" = "Humidity";
 "chances_of_rain_title" = "Rain Chances";
 "wind_speed_title" = "Wind Speed";
+
+"error_global" = "Error";
+"ok_global" = "OK";
+
+"location_title" = "Locations";
+"today_weather_title" = "Today's Weather";
+"add_location_title" = "Add Location";

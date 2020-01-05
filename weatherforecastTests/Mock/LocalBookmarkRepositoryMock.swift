@@ -10,6 +10,7 @@ import Foundation
 @testable import weatherforecast
 
 final class LocalBookmarkRepositoryMock: BookmarkLocationRepository {
+	
 
 	var saveLocationResultMock: Result<Void, Error>?
 	var retrieveAllLocationsResultMock: Result<[PlaceInfo], Error>?
@@ -22,5 +23,8 @@ final class LocalBookmarkRepositoryMock: BookmarkLocationRepository {
 	func retrieveAllLocations(completionHandler: (Result<[PlaceInfo], Error>) -> Void) {
 		guard let retrieveAllLocationsResultMock = retrieveAllLocationsResultMock else { return }
 		completionHandler(retrieveAllLocationsResultMock)
+	}
+	
+	func removeLocation(cityId: Int, completionHandler: (Result<Void, Error>) -> Void) {
 	}
 }

@@ -51,7 +51,9 @@ final class BookmarkedLocationViewController: UIViewController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-	
+
+		title = "location_title".localized
+		
 		tableView.register(BookmarkedLocationTableViewCell.self,
 						   forCellReuseIdentifier: BookmarkedLocationTableViewCell.identifier)
 		
@@ -131,5 +133,10 @@ extension BookmarkedLocationViewController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		viewModel.showDetailWeatherInfo(at: indexPath)
+	}
+	
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		guard editingStyle == .delete else { return }
+		viewModel.deleteBookmark(at: indexPath)
 	}
 }
