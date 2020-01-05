@@ -100,4 +100,10 @@ final class BookmarkedLocationViewControllerNavigationDelegateMock: BookmarkedLo
 	func showDetailWeatherInfo() {
 		didShowDetailWeatherInfo = true
 	}
+	
+	func showHelpScreen() {
+	}
+	
+	func showConfirmationAlert(cityName: String, completion: @escaping () -> Void) {
+	}
 }

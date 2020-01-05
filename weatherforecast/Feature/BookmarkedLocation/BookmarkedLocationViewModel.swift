@@ -71,11 +71,19 @@ final class BookmarkedLocationViewModel {
 	}
 
 	func deleteBookmark(at indexPath: IndexPath) {
-		guard let cityId = infoList[indexPath.row].cityId
-		else {
-			return
-		}
-		
+		let selectedInfo = infoList[indexPath.row]
+		navigationDelegate?.showConfirmationAlert(cityName: selectedInfo.cityName ?? "",
+												  completion: { [weak self] in
+													guard let cityId = selectedInfo.cityId
+													else {
+														return
+													}
+													
+													self?.removeLocation(cityId: cityId)
+		})
+	}
+
+	private func removeLocation(cityId: Int) {
 		localBookmarkRepository.removeLocation(cityId: cityId) { [weak self] (result) in
 			switch result {
 			case .success:

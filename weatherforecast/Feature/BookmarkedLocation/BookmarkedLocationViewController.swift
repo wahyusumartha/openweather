@@ -14,6 +14,7 @@ protocol BookmarkedLocationViewControllerNavigationDelegate: AnyObject {
 	func showErrorMessage(_ message: String?)
 	func showDetailWeatherInfo()
 	func showHelpScreen()
+	func showConfirmationAlert(cityName: String, completion: @escaping () -> Void)
 }
 
 final class BookmarkedLocationViewController: UIViewController {
