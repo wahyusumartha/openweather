@@ -67,7 +67,8 @@ struct LocalBookmarkRepository: BookmarkLocationRepository {
 		do {
 			let locations = try managedContext.fetch(fetchRequest)
 			var placeInfos: [PlaceInfo] = []
-			locations.forEach {
+			let reversedLocation = locations.reversed()
+			reversedLocation.forEach {
 				if let identifier = $0.value(forKey: Self.cityIdKey) as? Int,
 					let name = $0.value(forKey: Self.cityNameKey) as? String {
 					let placeInfo = PlaceInfo(identifier: identifier, name: name)
