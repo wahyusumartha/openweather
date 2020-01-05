@@ -8,10 +8,16 @@
 
 "bookmark_button_title" = "Bookmark";
 
-"temperature_in_metrics_format" = "%@ °C";
+"temperature_in_metrics_format" = "%@°C";
 "wind_speed_in_metrics_format" = "%@ m/s";
 
 "temperature_in_imperials_format" = "%@ °F";
 "wind_speed_in_imperials_format" = "%@ mph";
 
 "humidity_percentage" = "%@ %%";
+"chances_of_rain" = "%@ %%";
+
+"temperature_title" = "Temperature";
+"humidity_title" = "Humidity";
+"chances_of_rain_title" = "Rain Chances";
+"wind_speed_title" = "Wind Speed";

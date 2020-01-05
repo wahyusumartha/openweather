@@ -7,24 +7,55 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class DetailWeatherInfoViewController: UIViewController {
 
+	private let headerView: DetailWeatherInfoHeaderView = {
+		let headerView = DetailWeatherInfoHeaderView()
+		headerView.translatesAutoresizingMaskIntoConstraints = false
+		return headerView
+	}()
+
+	private let viewModel: DetailWeatherInfoViewModel
+	
+	init(viewModel: DetailWeatherInfoViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+		
+		setupSubviews()
+		setupConstraints()
     }
-    
+	
+	private func setupSubviews() {
+		view.backgroundColor = .authenticBlue50
+		view.addSubview(headerView)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+		viewModel.weatherInformations.forEach {
+			self.headerView.addWeatherInfoToStackView(titleText: $0.title, infoText: $0.info)
+		}
+	
+		headerView.locationLabel.text = viewModel.headerItem.locationName
+		headerView.weatherDescriptionLabel.text = viewModel.headerItem.weatherInfo
+		headerView.weatherImageView.kf.setImage(with: viewModel.headerItem.iconURL)
+	}
+	
+	private func setupConstraints() {
+		let headerViewConstraints = [
+			headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+			headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+			headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+			headerView.heightAnchor.constraint(equalToConstant: 180)
+		]
+		
+		NSLayoutConstraint.activate(headerViewConstraints)
+	}
 }

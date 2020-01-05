@@ -22,7 +22,8 @@ final class BookmarkedLocationViewModelTests: XCTestCase {
 		openWeatherRepositoryMock = OpenWeatherRepositoryMock()
 		localBookmarkRepositoryMock = LocalBookmarkRepositoryMock()
 		viewModel = BookmarkedLocationViewModel(localBookmarkRepository: localBookmarkRepositoryMock,
-												openWeatherRepository: openWeatherRepositoryMock)
+												openWeatherRepository: openWeatherRepositoryMock,
+												selectedWeatherInfoHandler: SelectedWeatherInfoHandlerMock())
 	}
 
     override func tearDown() {

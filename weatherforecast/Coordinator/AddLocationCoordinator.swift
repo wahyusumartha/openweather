@@ -17,7 +17,7 @@ final class AddLocationCoordinator: Coordinator {
 	}
 
 	func startFlow() {
-		let addLocationViewController = AddLocationFactory().makeAddLocationViewController()
+		let addLocationViewController = AddLocationFactory.makeAddLocationViewController()
 		addLocationViewController.navigationDelegate = self
 		navigationController?.pushViewController(addLocationViewController, animated: true)
 	}

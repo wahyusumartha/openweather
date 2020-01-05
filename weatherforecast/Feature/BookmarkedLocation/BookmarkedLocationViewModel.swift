@@ -17,7 +17,7 @@ final class BookmarkedLocationViewModel {
 		let windDegree: Double
 		let humidity: Int
 		let temperature: Int
-		let iconName: String
+		let iconUrl: URL?
 	}
 
 	weak var navigationDelegate: BookmarkedLocationViewControllerNavigationDelegate?
@@ -32,12 +32,16 @@ final class BookmarkedLocationViewModel {
 	
 	private let localBookmarkRepository: BookmarkLocationRepository
 	private let openWeatherRepository: WeatherRepository
+	private let selectedWeatherInfoHandler: SelectedWeatherInfoHandling
 	private let itemsSubject: Observable<[BookmarkItem]> = Observable([])
+	private var infoList: [AggregatedWeatherInfo] = []
 
 	init(localBookmarkRepository: BookmarkLocationRepository,
-		 openWeatherRepository: WeatherRepository) {
+		 openWeatherRepository: WeatherRepository,
+		 selectedWeatherInfoHandler: SelectedWeatherInfoHandling) {
 		self.localBookmarkRepository = localBookmarkRepository
 		self.openWeatherRepository = openWeatherRepository
+		self.selectedWeatherInfoHandler = selectedWeatherInfoHandler
 	}
 
 	func retrieveBookmarkedLocations() {
@@ -55,7 +59,9 @@ final class BookmarkedLocationViewModel {
 		navigationDelegate?.showAddLocation()
 	}
 
-	func showDetailWeatherInfo() {
+	func showDetailWeatherInfo(at indexPath: IndexPath) {
+		let selectedWeatherInfo = infoList[indexPath.row]
+		selectedWeatherInfoHandler.updateSelectedWeatherInfo(selectedWeatherInfo)
 		navigationDelegate?.showDetailWeatherInfo()
 	}
 	
@@ -66,23 +72,16 @@ final class BookmarkedLocationViewModel {
 		openWeatherRepository.weatherForecastByCityIds(uniqueCityIds) { [weak self] (result) in
 			switch result {
 			case .success(let infoList):
+				self?.infoList = infoList.infos
 				self?.itemsSubject.value = infoList.infos.map { BookmarkItem(locationName: $0.cityName,
 																			windSpeed: Int($0.wind.speed),
 																			windDegree: $0.wind.degree,
 																			humidity: Int($0.mainInfo.humidity),
 																			temperature: Int($0.mainInfo.temperature),
-																			iconName: $0.weathers.first?.iconId ?? "") }
+																			iconUrl: $0.weathers.first?.iconUrl ?? nil) }
 			case .failure(let error):
 				self?.navigationDelegate?.showErrorMessage(error.localizedDescription)
 			}
 		}
-	}
-	
-}
-
-extension BookmarkedLocationViewModel.BookmarkItem {
-	var iconUrl: URL? {
-		let baseUrl = "https://openweathermap.org/img/wn/"
-		return URL(string: baseUrl + iconName + "@2x.png")
 	}
 }

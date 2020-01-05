@@ -23,3 +23,10 @@ extension Weather: Codable {
 		case iconId = "icon"
 	}
 }
+
+extension Weather {
+	var iconUrl: URL? {
+		let baseUrl = "https://openweathermap.org/img/wn/"
+		return URL(string: baseUrl + iconId + "@2x.png")
+	}
+}

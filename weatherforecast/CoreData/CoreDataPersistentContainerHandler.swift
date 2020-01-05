@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-protocol CoreDataPersistenContainerHandling {
+protocol CoreDataPersistenContainerHandling: class {
 	var persistentContainer: NSPersistentContainer { get }
 }
 

@@ -11,21 +11,14 @@ import Swinject
 
 struct BookmarkedLocationFactory {
 
-	private let assembler: Assembler
-	
-	init(assembler: Assembler = Assembler([CoreDataPersistenContainerAssembly(),
-										   LocalBookmarkRepositoryAssembly(),
-										   HTTPClientAssembly(),
-										   OpenWeatherRepositoryAssembly()])) {
-		self.assembler = assembler
-	}
-	
-	
-	func makeBookmarkedLocationViewController() -> BookmarkedLocationViewController {
+	static func makeBookmarkedLocationViewController() -> BookmarkedLocationViewController {
+		let assembler = AppDependencyContainer.shared.assembler
 		let localBookmarkRepository = assembler.resolver.resolve(BookmarkLocationRepository.self)!
 		let openWeatherRepository = assembler.resolver.resolve(WeatherRepository.self)!
+		let selectedWeatherInfoHandler = assembler.resolver.resolve(SelectedWeatherInfoHandling.self)!
 		let viewModel = BookmarkedLocationViewModel(localBookmarkRepository: localBookmarkRepository,
-													openWeatherRepository: openWeatherRepository)
+													openWeatherRepository: openWeatherRepository,
+													selectedWeatherInfoHandler: selectedWeatherInfoHandler)
 		let bookmarkedLocationViewController = BookmarkedLocationViewController(viewModel: viewModel)
 		return bookmarkedLocationViewController
 	}

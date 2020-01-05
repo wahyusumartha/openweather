@@ -18,7 +18,7 @@ final class AppMainCoordinator: Coordinator {
 	}
 	
 	func startFlow() {
-		let viewController = BookmarkedLocationFactory().makeBookmarkedLocationViewController()
+		let viewController = BookmarkedLocationFactory.makeBookmarkedLocationViewController()
 		viewController.navigationDelegate = self
 		let navigationController = UINavigationController(rootViewController: viewController)
 		window?.rootViewController = navigationController

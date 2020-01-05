@@ -118,6 +118,6 @@ extension BookmarkedLocationViewController: UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		viewModel.showDetailWeatherInfo()
+		viewModel.showDetailWeatherInfo(at: indexPath)
 	}
 }

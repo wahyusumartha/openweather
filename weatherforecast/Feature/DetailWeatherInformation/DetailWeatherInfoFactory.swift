@@ -7,9 +7,13 @@
 //
 
 import Foundation
+import Swinject
 
-struct DetailWeatherInfoFactory {
+final class DetailWeatherInfoFactory {
 	static func makeDetailWeatherInfoViewController() -> DetailWeatherInfoViewController {
-		return DetailWeatherInfoViewController()
+		let assembler = AppDependencyContainer.shared.assembler
+		let selectedWeatherInfoHandler = assembler.resolver.resolve(SelectedWeatherInfoHandling.self)!
+		let viewModel = DetailWeatherInfoViewModel(selectedWeatherInfoHandler: selectedWeatherInfoHandler)
+		return DetailWeatherInfoViewController(viewModel: viewModel)
 	}
 }

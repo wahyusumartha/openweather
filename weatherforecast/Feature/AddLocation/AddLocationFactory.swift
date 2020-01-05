@@ -11,18 +11,9 @@ import Swinject
 
 struct AddLocationFactory {
 
-	private let assembler: Assembler
-	
-	
-	init(assembler: Assembler = Assembler([HTTPClientAssembly(),
-										   OpenWeatherRepositoryAssembly(),
-										   CoreDataPersistenContainerAssembly(),
-										   LocalBookmarkRepositoryAssembly()])) {
-		self.assembler = assembler
-	}
-	
-	func makeAddLocationViewController() -> AddLocationViewController {
+	static func makeAddLocationViewController() -> AddLocationViewController {
 		let deviceLocationHandler = DeviceLocationHandler()
+		let assembler = AppDependencyContainer.shared.assembler
 		let openWeatherRepository = assembler.resolver.resolve(WeatherRepository.self)!
 		let localBookmarkRepository = assembler.resolver.resolve(BookmarkLocationRepository.self)!
 		let viewModel = AddLocationViewModel(deviceLocationHandler: deviceLocationHandler,
