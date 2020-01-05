@@ -103,8 +103,7 @@ final class BookmarkedLocationViewModel {
 	
 	private func retrieveWeatherInfo(placeInfos: [PlaceInfo]) {
 		let cityIds = placeInfos.map { $0.identifier }
-		let uniqueCityIds = Set(cityIds).map { $0 }
-		openWeatherRepository.weatherForecastByCityIds(uniqueCityIds) { [weak self] (result) in
+		openWeatherRepository.weatherForecastByCityIds(cityIds) { [weak self] (result) in
 			switch result {
 			case .success(let infoList):
 				self?.infoList = infoList.infos
