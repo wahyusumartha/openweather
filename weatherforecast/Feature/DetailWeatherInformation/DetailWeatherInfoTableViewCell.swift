@@ -34,6 +34,7 @@ final class DetailWeatherInfoTableViewCell: UITableViewCell {
 	}
 	
 	private func setupSubviews() {
+		selectionStyle = .none
 		backgroundColor = .clear
 		contentView.addSubview(cardView)
 	}
