@@ -24,7 +24,12 @@
 
 "error_global" = "Error";
 "ok_global" = "OK";
+"cancel_global" = "Cancel";
+"delete_global" = "Delete";
 
 "location_title" = "Locations";
 "today_weather_title" = "Today's Weather";
 "add_location_title" = "Add Location";
+
+"confirmation_alert_title" = "Confirmation";
+"bookmark_remove_confirmation_message" = "Are you sure to delete %@ from bookmark list?";

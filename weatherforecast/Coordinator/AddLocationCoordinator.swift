@@ -25,10 +25,10 @@ final class AddLocationCoordinator: Coordinator {
 
 extension AddLocationCoordinator: AddLocationViewControllerNavigationDelegate {
 	func showAlert(with message: String?) {
-		let alertController = UIAlertController(title: "Error",
+		let alertController = UIAlertController(title: "error_global".localized,
 												message: message,
 												preferredStyle: .alert)
-		let action = UIAlertAction(title: "OK",
+		let action = UIAlertAction(title: "ok_global".localized,
 								   style: .default)
 		alertController.addAction(action)
 		navigationController?.present(alertController, animated: true)

@@ -74,6 +74,8 @@ final class AddLocationViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 
+		title = "add_location_title".localized
+		
 		setupSubviews()
 		setupConstraints()
 			

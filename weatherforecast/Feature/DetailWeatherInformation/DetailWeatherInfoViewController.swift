@@ -30,6 +30,8 @@ final class DetailWeatherInfoViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+	
+		title = "today_weather_title".localized
 		
 		setupSubviews()
 		setupConstraints()
