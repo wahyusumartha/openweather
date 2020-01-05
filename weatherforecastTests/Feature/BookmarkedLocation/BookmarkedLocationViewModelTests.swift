@@ -50,7 +50,8 @@ final class BookmarkedLocationViewModelTests: XCTestCase {
 														  wind: wind,
 														  mainInfo: mainInfo,
 														  cityId: cityId,
-														  cityName: cityName)
+														  cityName: cityName,
+														  timestamp: 12345)
 		let infoList = AggregatedWeatherInfoList(infos: [aggregatedWeatherInfo, aggregatedWeatherInfo])
 		openWeatherRepositoryMock.weatherForecastByCitiIdsResultMock = .success(infoList)
 		

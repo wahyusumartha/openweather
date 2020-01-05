@@ -13,7 +13,9 @@ final class DetailWeatherInfoFactory {
 	static func makeDetailWeatherInfoViewController() -> DetailWeatherInfoViewController {
 		let assembler = AppDependencyContainer.shared.assembler
 		let selectedWeatherInfoHandler = assembler.resolver.resolve(SelectedWeatherInfoHandling.self)!
-		let viewModel = DetailWeatherInfoViewModel(selectedWeatherInfoHandler: selectedWeatherInfoHandler)
+		let openWeatherRepository = assembler.resolver.resolve(WeatherRepository.self)!
+		let viewModel = DetailWeatherInfoViewModel(selectedWeatherInfoHandler: selectedWeatherInfoHandler,
+												   openWeatherRepository: openWeatherRepository)
 		return DetailWeatherInfoViewController(viewModel: viewModel)
 	}
 }

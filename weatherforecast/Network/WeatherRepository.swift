@@ -24,7 +24,6 @@ protocol WeatherRepository {
 	func weatherForecastByCityIds(_ cityIds: [Int],
 								  completionHandler: @escaping (Result<AggregatedWeatherInfoList, WeatherRepositoryError>) -> Void)
 	
-	func fiveDaysWeatherForecastByGeographicCoordinate(latitude: Double,
-													   longitude: Double,
-													   completionHandler: () -> Void)
+	func fiveDaysWeatherForecast(cityId: Int,
+								 completionHandler: @escaping (Result<AggregatedWeatherInfoList, WeatherRepositoryError>) -> Void)
 }

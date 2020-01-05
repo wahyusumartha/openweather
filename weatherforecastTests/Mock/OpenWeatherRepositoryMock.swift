@@ -30,5 +30,9 @@ final class OpenWeatherRepositoryMock: WeatherRepository {
 								  completionHandler: @escaping (Result<PlaceInfo, WeatherRepositoryError>) -> Void) {
 		
 	}
-	
+
+	func fiveDaysWeatherForecast(cityId: Int,
+								 completionHandler: @escaping (Result<AggregatedWeatherInfoList, WeatherRepositoryError>) -> Void) {
+		
+	}
 }

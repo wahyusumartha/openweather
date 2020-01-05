@@ -24,7 +24,6 @@ final class DetailWeatherInfoHeaderView: UIView {
 		locationLabel.translatesAutoresizingMaskIntoConstraints = false
 		locationLabel.textColor = .white
 		locationLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-		locationLabel.text = "Hamburg"
 		return locationLabel
 	}()
 	
@@ -33,7 +32,6 @@ final class DetailWeatherInfoHeaderView: UIView {
 		weatherDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 		weatherDescriptionLabel.textColor = .white
 		weatherDescriptionLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-		weatherDescriptionLabel.text = "Partly Cloudy"
 		return weatherDescriptionLabel
 	}()
 	

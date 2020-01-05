@@ -10,7 +10,7 @@ import Foundation
 
 enum OpenWeatherEndpoint {
 	case weatherForecastByGeographicCoordinate(latitude: Double, longitude: Double)
-	case fiveDaysWeatherForecastByGeographicCoordinate(latitude: Double, longitude: Double)
+	case fiveDaysWeatherForecast(cityId: Int)
 	case placeInfo(latitude: Double, longitude: Double)
 	case weatherForecastByCityIds(_ cityIds: [Int])
 	var url: URL {
@@ -34,9 +34,9 @@ enum OpenWeatherEndpoint {
 			}
 			
 			return url
-		case .fiveDaysWeatherForecastByGeographicCoordinate(let latitude, let longitude):
+		case .fiveDaysWeatherForecast(let cityId):
 			let urlAsString = #"\#(OpenWeatherUrlConfiguration.apiUrl)/forecast"# +
-							  #"?lat=\#(latitude)&lon=\#(longitude)&appid=\#(OpenWeatherCredential.appKey)&units=metric"#
+							  #"?id=\#(cityId)&appid=\#(OpenWeatherCredential.appKey)&units=metric"#
 			guard let url = URL(string: urlAsString) else {
 				fatalError("Could not form url for .weatherForecastByGeographicCoordinate or .placeInfo")
 			}

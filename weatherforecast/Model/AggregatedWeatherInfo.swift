@@ -13,8 +13,9 @@ struct AggregatedWeatherInfo: Equatable {
 	let cloud: Cloud
 	let wind: Wind
 	let mainInfo: MainInfo
-	let cityId: Int
-	let cityName: String
+	let cityId: Int?
+	let cityName: String?
+	let timestamp: TimeInterval?
 }
 
 extension AggregatedWeatherInfo: Codable {
@@ -25,5 +26,15 @@ extension AggregatedWeatherInfo: Codable {
 		case wind
 		case cityId = "id"
 		case cityName = "name"
+		case timestamp = "dt"
+	}
+}
+
+extension AggregatedWeatherInfo {
+	var formattedDateAsString: String {
+		let date = Date(timeIntervalSince1970: timestamp ?? 0)
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
+		return dateFormatter.string(from: date)
 	}
 }

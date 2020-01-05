@@ -8,17 +8,38 @@
 
 import UIKit
 import Kingfisher
+import Observable
+
+protocol DetailWeatherInfoViewControllerNavigationDelegate: class {
+	func showErrorMessage(_ message: String?)
+}
 
 final class DetailWeatherInfoViewController: UIViewController {
 
+	weak var navigationDelegate: DetailWeatherInfoViewControllerNavigationDelegate? {
+		didSet {
+			viewModel.navigationDelegate = navigationDelegate
+		}
+	}
+	
 	private let headerView: DetailWeatherInfoHeaderView = {
 		let headerView = DetailWeatherInfoHeaderView()
 		headerView.translatesAutoresizingMaskIntoConstraints = false
 		return headerView
 	}()
 
+	private let tableView: UITableView = {
+		let tableView = UITableView()
+		tableView.translatesAutoresizingMaskIntoConstraints = false
+		tableView.backgroundColor = .clear
+		tableView.separatorStyle = .none
+		return tableView
+	}()
+	
 	private let viewModel: DetailWeatherInfoViewModel
 	
+	private var disposal = Disposal()
+
 	init(viewModel: DetailWeatherInfoViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
@@ -35,11 +56,21 @@ final class DetailWeatherInfoViewController: UIViewController {
 		
 		setupSubviews()
 		setupConstraints()
+		bindObservable()
+		
+		viewModel.retrieveFiveDaysWeatherForecast()
     }
 	
 	private func setupSubviews() {
 		view.backgroundColor = .authenticBlue50
 		view.addSubview(headerView)
+		
+		tableView.delegate = self
+		tableView.dataSource = self
+		
+		tableView.register(DetailWeatherInfoTableViewCell.self,
+						   forCellReuseIdentifier: DetailWeatherInfoTableViewCell.identifier)
+		view.addSubview(tableView)
 
 		viewModel.weatherInformations.forEach {
 			self.headerView.addWeatherInfoToStackView(titleText: $0.title, infoText: $0.info)
@@ -58,6 +89,50 @@ final class DetailWeatherInfoViewController: UIViewController {
 			headerView.heightAnchor.constraint(equalToConstant: 180)
 		]
 		
-		NSLayoutConstraint.activate(headerViewConstraints)
+		let tableViewConstraints = [
+			tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10),
+			tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+		]
+		
+		let activeConstraints = headerViewConstraints + tableViewConstraints
+		
+		NSLayoutConstraint.activate(activeConstraints)
+	}
+	
+	private func bindObservable() {
+		viewModel.items.observe { [weak self] (items, _) in
+			self?.tableView.reloadData()
+		}.add(to: &disposal)
+	}
+}
+
+extension DetailWeatherInfoViewController: UITableViewDataSource {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard
+			let cell = tableView.dequeueReusableCell(withIdentifier: DetailWeatherInfoTableViewCell.identifier,
+													 for: indexPath) as? DetailWeatherInfoTableViewCell
+		else {
+			return UITableViewCell()
+		}
+
+		let configurator = DetailWeatherInfoTableViewCellConfigurator()
+		configurator.configureCell(cell, item: viewModel.items.value[indexPath.row])
+		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return viewModel.items.value.count
+	}
+}
+
+extension DetailWeatherInfoViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 70
+	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 70
 	}
 }

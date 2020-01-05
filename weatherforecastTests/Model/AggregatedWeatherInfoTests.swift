@@ -26,7 +26,8 @@ final class AggregatedWeatherInfoTests: XCTestCase {
 														  wind: wind,
 														  mainInfo: mainInfo,
 														  cityId: cityId,
-														  cityName: cityName)
+														  cityName: cityName,
+														  timestamp: 12345)
 		
 		XCTAssertEqual(aggregatedWeatherInfo.weathers, [weather])
 		XCTAssertEqual(aggregatedWeatherInfo.cloud, cloud)
