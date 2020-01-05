@@ -44,6 +44,9 @@
 		EB61609423BD6EA10029BAC3 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */; };
 		EB8A121B23C15ACB00D04CEC /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A121A23C15ACB00D04CEC /* AppDependencyContainer.swift */; };
 		EB8A121D23C15E1000D04CEC /* SelectedWeatherInfoHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A121C23C15E1000D04CEC /* SelectedWeatherInfoHandlerMock.swift */; };
+		EB8A122223C1628400D04CEC /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A122123C1628400D04CEC /* HelpViewController.swift */; };
+		EB8A122523C1680A00D04CEC /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = EB8A122423C1680A00D04CEC /* index.html */; };
+		EB8A122723C1690F00D04CEC /* HelpViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A122623C1690F00D04CEC /* HelpViewControllerFactory.swift */; };
 		EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */; };
 		EBFF6DEC23BCBF8B00528352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */; };
 		EBFF6DEF23BCBF8B00528352 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFF6DED23BCBF8B00528352 /* LaunchScreen.storyboard */; };
@@ -124,6 +127,9 @@
 		EB61609323BD6EA10029BAC3 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		EB8A121A23C15ACB00D04CEC /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		EB8A121C23C15E1000D04CEC /* SelectedWeatherInfoHandlerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedWeatherInfoHandlerMock.swift; sourceTree = "<group>"; };
+		EB8A122123C1628400D04CEC /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		EB8A122423C1680A00D04CEC /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		EB8A122623C1690F00D04CEC /* HelpViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewControllerFactory.swift; sourceTree = "<group>"; };
 		EBFF6DDF23BCBF8A00528352 /* weatherforecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherforecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFF6DE223BCBF8A00528352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFF6DEB23BCBF8B00528352 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -282,6 +288,16 @@
 			path = AddLocation;
 			sourceTree = "<group>";
 		};
+		EB8A122023C1624600D04CEC /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				EB8A122123C1628400D04CEC /* HelpViewController.swift */,
+				EB8A122423C1680A00D04CEC /* index.html */,
+				EB8A122623C1690F00D04CEC /* HelpViewControllerFactory.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 		EBFF6DD623BCBF8A00528352 = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +435,7 @@
 		EBFF6E4623BD495E00528352 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				EB8A122023C1624600D04CEC /* Help */,
 				EB5F7C0C23C0EA35004199A4 /* DetailWeatherInformation */,
 				EB61609223BD6E770029BAC3 /* AddLocation */,
 				EBFF6E4723BD496600528352 /* BookmarkedLocation */,
@@ -531,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBFF6DEF23BCBF8B00528352 /* LaunchScreen.storyboard in Resources */,
+				EB8A122523C1680A00D04CEC /* index.html in Resources */,
 				EB5F7BFF23C0DBA7004199A4 /* Localizable.strings in Resources */,
 				EBFF6DEC23BCBF8B00528352 /* Assets.xcassets in Resources */,
 			);
@@ -568,9 +586,11 @@
 				EBFF6E1B23BD0E8500528352 /* MainInfo.swift in Sources */,
 				EB5F7BEB23BEA257004199A4 /* BookmarkedLocationViewModel.swift in Sources */,
 				EB5F7BE023BE7F9B004199A4 /* LocalBookmarkRepositoryAssembly.swift in Sources */,
+				EB8A122723C1690F00D04CEC /* HelpViewControllerFactory.swift in Sources */,
 				EBFF6E4323BD454B00528352 /* OpenWeatherRepositoryAssembly.swift in Sources */,
 				EB5F7BDB23BE7C20004199A4 /* CoreDataPersistentContainerHandler.swift in Sources */,
 				EBFF6DE323BCBF8A00528352 /* AppDelegate.swift in Sources */,
+				EB8A122223C1628400D04CEC /* HelpViewController.swift in Sources */,
 				EBFF6E4923BD499000528352 /* BookmarkedLocationViewController.swift in Sources */,
 				EBFF6E4523BD45CC00528352 /* HTTPClientAssembly.swift in Sources */,
 				EBFF6E3223BD374000528352 /* OpenWeatherEndpoint.swift in Sources */,

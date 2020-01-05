@@ -87,4 +87,8 @@ struct OpenWeatherRepository: WeatherRepository {
 			}
 		}
 	}
+	
+	func fiveDaysWeatherForecastByGeographicCoordinate(latitude: Double, longitude: Double, completionHandler: () -> Void) {
+		
+	}
 }

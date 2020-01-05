@@ -13,6 +13,7 @@ protocol BookmarkedLocationViewControllerNavigationDelegate: AnyObject {
 	func showAddLocation()
 	func showErrorMessage(_ message: String?)
 	func showDetailWeatherInfo()
+	func showHelpScreen()
 }
 
 final class BookmarkedLocationViewController: UIViewController {
@@ -57,6 +58,7 @@ final class BookmarkedLocationViewController: UIViewController {
 		setupSubviews()
 		setupConstraints()
 		setupRightNavigationBarButtonItem()
+		setupLeftNavigationBarButtonItem()
 		bindObservable()
 	}
    
@@ -83,8 +85,18 @@ final class BookmarkedLocationViewController: UIViewController {
 		navigationItem.rightBarButtonItem = rightBarButtonItem
 	}
 	
+	private func setupLeftNavigationBarButtonItem() {
+		let leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showHelpScreen))
+		leftBarButtonItem.tintColor = .authenticBlue900
+		navigationItem.leftBarButtonItem = leftBarButtonItem
+	}
+	
 	@objc private func showAddLocation() {
 		viewModel.showAddLocation()
+	}
+	
+	@objc private func showHelpScreen() {
+		viewModel.showHelpScreen()
 	}
 	
 	private func bindObservable() {

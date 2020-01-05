@@ -64,7 +64,10 @@ final class BookmarkedLocationViewModel {
 		selectedWeatherInfoHandler.updateSelectedWeatherInfo(selectedWeatherInfo)
 		navigationDelegate?.showDetailWeatherInfo()
 	}
-	
+
+	func showHelpScreen() {
+		navigationDelegate?.showHelpScreen()
+	}
 	
 	private func retrieveWeatherInfo(placeInfos: [PlaceInfo]) {
 		let cityIds = placeInfos.map { $0.identifier }

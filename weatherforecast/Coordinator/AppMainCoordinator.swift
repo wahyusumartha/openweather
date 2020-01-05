@@ -48,4 +48,10 @@ extension AppMainCoordinator: BookmarkedLocationViewControllerNavigationDelegate
 		detailWeatherInfoCoordinator = DetailWeatherInfoCoordinator(navigationController: window?.rootViewController as? UINavigationController)
 		detailWeatherInfoCoordinator?.startFlow()
 	}
+	
+	func showHelpScreen() {
+		let helpViewController = HelpViewController()
+		let navigationController = window?.rootViewController as? UINavigationController
+		navigationController?.pushViewController(helpViewController, animated: true)
+	}
 }
